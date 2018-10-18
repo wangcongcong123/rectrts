@@ -1,0 +1,25 @@
+2017 TREC RTS dataset that can be found via:
+
+In the rts2017-mobile-qrels.txt, there are
+
+Unique topics:  188
+Unique tweets:  41956
+Tall tweets included: 85525
+So the repeated tweets: 43569
+
+After retrieval via Tweepy API (a Python-based Twitter client/package)
+
+There are 30261 unique tweets that were successfully obtained and stored in MYSQL database
+
+That means there are 41956-30261=11695 unique tweets which failed to access.
+
+By the values, we get the success_retrieval_rate=100%*30261/41956=72.1% and error_retrieval_rate=1-success_retrieval_rate=27.9%
+
+There are several types of error happened while retrieving the tweets. There are recorded as follows
+
+. Unique Tweets whose users have been suspended: 5051
+. Unique Tweets that do not exist: 404
+. No status found given the tweet ID: 5202
+. Not authorized to see the status: 1222
+. Failed to send request: 1
+
