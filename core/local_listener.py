@@ -1,4 +1,4 @@
-from processor import Processor
+from core.processor import Processor
 import time
 import pymysql
 
@@ -37,8 +37,8 @@ class LocalListener:
         return results
 
     # this method is used for playing around with tweets in small volumns
-    def get_100_status(self):
-        sql = "select * from status limit 100"
+    def get_topn_status(self,n):
+        sql = "select id,text,topic_label,relevance from status limit %d"%(n)
         self.cursor.execute(sql)
         try:
             self.cursor.execute(sql)
@@ -48,13 +48,25 @@ class LocalListener:
             self.db.close()
         return results
 
+    # this method is used for playing around with tweets in small volumns
+    def get_status_by_topic(self, tl):
+        sql = "select id,text,topic_label,relevance from status where topic_label = '%s'" % (tl)
+        self.cursor.execute(sql)
+        try:
+            self.cursor.execute(sql)
+            results = self.cursor.fetchall()
+        except:
+            self.db.rollback()
+            self.db.close()
+        return results
+
+
     def listen(self, executor):
         # print("here is listenning local status")
         test_status = self.get_test_status()
         for each in test_status:
             time.sleep(1)
             executor.excute(each)
-
         # return test_status
 
     def count(self):
@@ -76,6 +88,7 @@ class LocalListener:
         #     else:
         #         count_dic[each[2]] += 1
         print(count_dic)
+
 
 if __name__ == '__main__':
     pass

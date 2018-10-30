@@ -6,7 +6,7 @@ uni_tweet_dict={}
 def rts_mobile_dataset_count():
     uni_topic_count=0
     uni_tweet_count=0
-    with open("dataset/rts2017-mobile-qrels.txt") as f:
+    with open("TRECdataset/rts2017-mobile-qrels.txt") as f:
         alllines = f.read().split("\n")
         for eachline in alllines:
             linecolumns=eachline.split()

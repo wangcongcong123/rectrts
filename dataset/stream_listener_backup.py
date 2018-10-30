@@ -5,7 +5,7 @@ from textblob import TextBlob
 from sqlalchemy.exc import ProgrammingError
 import json
 
-# db = dataset.connect(settings.CONNECTION_STRING)
+# db = TRECdataset.connect(settings.CONNECTION_STRING)
 
 class OnlineListener(tweepy.StreamListener):
 

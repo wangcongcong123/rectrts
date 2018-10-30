@@ -6,9 +6,9 @@ import private
 import pymysql
 from tweepy import TweepError
 
-datasetname="rts2016-mobileA-qrels"
+
 def write_to_log(err_log):
-    with open("err_log-"+datasetname+".txt", "a") as f:
+    with open("err_log.txt", "a") as f:
         f.write(err_log)
     pass
 
@@ -18,9 +18,9 @@ def main():
     api = tweepy.API(auth)
     err_log = ""
     count = 0
-    with open("dataset/"+datasetname+".txt",'r') as f:
+    with open("TRECdataset/rts2017-mobile-qrels.txt",'r') as f:
         content=f.read().split("\n")
-        print("the dataset include %s lines (namely the number of tweets)"%(len(content)))
+        print("the TRECdataset include %s lines (namely the number of tweets)"%(len(content)))
         for eachline in content:
             # # Loop until we reach 20 minutes running
             # if count % 500 == 0:
@@ -32,6 +32,7 @@ def main():
                 break
             attributes=eachline.split(" ")
             status =""
+
             # status = api.get_status("891087128364539907")
             try:
                 status = api.get_status(attributes[1])
@@ -44,11 +45,11 @@ def main():
                     print("sleeping 10 minutes due to the rate limit")
                     time.sleep(10 * 60)
                 continue
+
             id = status.id_str
+
             topiclabel=attributes[0]
-            relevance=int(attributes[3])
-            if relevance == -1:
-                relevance=1
+            relevance=int(attributes[2])
             description = status.user.description
             loc = status.user.location
             text = status.text
@@ -63,9 +64,9 @@ def main():
             bg_color = status.user.profile_background_color
             db = pymysql.connect("localhost","root","123","trecrts")
             cursor = db.cursor()
-            sql = "INSERT INTO status(id,topic_label,relevance,user_description, user_location, coordinates, text,geo,user_name,user_created,user_followers,id_str,created,retweet_count,user_bg_color,dataset_src) VALUES" \
-                  " ('%s','%s','%d','%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%d' ,'%s','%s' )" % \
-                  (id, topiclabel,relevance,description.replace("\'",""), loc.replace("\'",""), coords,text.replace("\'",""),geo,name.replace("\'",""),user_created,followers,id_str,created,retweets,bg_color,datasetname)
+            sql = "INSERT INTO status(id,topic_label,relevance,user_description, user_location, coordinates, text,geo,user_name,user_created,user_followers,id_str,created,retweet_count,user_bg_color) VALUES" \
+                  " ('%s','%s','%d','%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%d' ,'%s' )" % \
+                  (id, topiclabel,relevance,description.replace("\'",""), loc.replace("\'",""), coords,text.replace("\'",""),geo,name.replace("\'",""),user_created,followers,id_str,created,retweets,bg_color)
             print("process",count)
             count += 1
             try:
@@ -76,6 +77,7 @@ def main():
                 print("\n"+id+"@MYSQLError:"+str(err))
                 write_to_log(err_log)
                 db.rollback
+
     db.close()
 
 if __name__ == '__main__':
