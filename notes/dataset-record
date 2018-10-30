@@ -4,12 +4,20 @@ In the rts2017-mobile-qrels.txt, there are
 
 Unique topics:  188
 Unique tweets:  41956
-Tall tweets included: 85525
+Total tweets included: 85525
 So the repeated tweets: 43569
 
 After retrieval via Tweepy API (a Python-based Twitter client/package)
 
 There are 30261 unique tweets that were successfully obtained and stored in MYSQL database
+
+In the retrieved tweets,
+
+.6445 are labeled as relevant
+
+.20785 are labeled as irrelevant
+
+.3009+22 are labeled as redundant
 
 That means there are 41956-30261=11695 unique tweets which failed to access.
 

@@ -12,7 +12,6 @@ def write_to_log(err_log):
         f.write(err_log)
     pass
 
-
 def main():
     auth = tweepy.OAuthHandler(private.TWITTER_APP_KEY, private.TWITTER_APP_SECRET)
     auth.set_access_token(private.TWITTER_KEY, private.TWITTER_SECRET)
@@ -48,7 +47,6 @@ def main():
                 continue
 
             id = status.id_str
-
 
             topiclabel=attributes[0]
             relevance=int(attributes[2])

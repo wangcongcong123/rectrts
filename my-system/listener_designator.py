@@ -19,8 +19,10 @@ def listen(option,executor):
         stream_listener = OnlineListener()
         stream_listener.setExecutor(executor)
         stream= tweepy.Stream(auth=api.auth, listener=stream_listener)
-
-        stream.filter(track=settings.TRACK_TERMS)
+        # stream.filter(track=["china"])
+        # stream.filter(languages=["en"])
+        stream.sample(languages=["en"])
+        # stream.sample()
         # return OnlineListener()
     else:
         print("error, please give the option argument local or online")
