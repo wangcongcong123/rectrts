@@ -23,7 +23,9 @@ def textParse(bigString):
     import re
     stemmer=PorterStemmer()
     listofTokens=re.split(r"\W+",bigString)
+    # listofTokens = re.split(r"([a-zA-Z]+)", bigString)
     tokens=[]
+    # "congcong123".isalpha() return False
     for token in listofTokens:
         if len(token)>2:
             token=token.lower()
@@ -42,3 +44,6 @@ def textParseWithFreq(bigString):
         else:
             freqdict[each]=0
     return freqdict
+#
+# if __name__ == '__main__':
+#     print()
