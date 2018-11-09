@@ -2,9 +2,7 @@ import json
 import timeit
 from extras import tools as tl
 
-
 class Processor:
-
     def __init__(self):
         pass
 
@@ -12,7 +10,6 @@ class Processor:
         print("this is expand_query class")
         pass
 
-    #
     def preprocess(self, tweet):
         print(tweet, " is preprocessing")
         pass
@@ -43,6 +40,7 @@ class Processor:
 # print(timeit.timeit("timetest()", number=1,setup="from __main__ import timetest"))
 
 if __name__ == '__main__':
+
     with open("../dataset/TRECdataset/TREC2017-RTS-topics-final.json") as f:
         from core.local_listener import LocalListener
         ll = LocalListener()
@@ -54,7 +52,7 @@ if __name__ == '__main__':
         profile46vector={}
         terminator = 0
         for profile in profiles:
-            if terminator == 5:
+            if terminator == 0:
                 profile_title = profile['title']
                 from extras import googleCSE as gcse
                 query_title_expanded_by_google = gcse.expand_by_google(profile_title)
@@ -73,6 +71,7 @@ if __name__ == '__main__':
                     print("labelled: ", tweetstream[3])
                 # print(query_expaned_tokens)
             terminator += 1
+
         # print()
         # print(len(ll.get_status_by_topic('RTS46')))
         # tl.test()

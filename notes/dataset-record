@@ -14,9 +14,7 @@ There are 30261 unique tweets that were successfully obtained and stored in MYSQ
 In the retrieved tweets,
 
 .6445 are labeled as relevant
-
 .20785 are labeled as irrelevant
-
 .3009+22 are labeled as redundant
 
 That means there are 41956-30261=11695 unique tweets which failed to access.
@@ -24,10 +22,54 @@ That means there are 41956-30261=11695 unique tweets which failed to access.
 By the values, we get the success_retrieval_rate=100%*30261/41956=72.1% and error_retrieval_rate=1-success_retrieval_rate=27.9%
 
 There are several types of error happened while retrieving the tweets. There are recorded as follows
-
 . Unique Tweets whose users have been suspended: 5051
 . Unique Tweets that do not exist: 404
 . No status found given the tweet ID: 5202
 . Not authorized to see the status: 1222
 . Failed to send request: 1
+
+In the rts2017-mobile-qrels.txt, there are
+Unique topics:  97
+Unique tweets:  69484
+Total tweets included: 94307
+So the repeated tweets: 24823
+Retrieved stored in MYSQL Database:48234
+Hence, retrieved rate: 48234/69484=69.4%
+
+To conclude, In the 2017's dataset, there are
+Unique topics:  max(188,97)=188
+Unique tweets:  41956+69484=111440
+Retrieved stored in MYSQL Database:30261+48234=78495
+Hence, 2017 overall retrieved rate:78495/111440=70.4%
+
+In the rts2016-mobileA-qrels.txt, there are
+Unique topics:  122
+Unique tweets:  11133
+Total tweets included: 12115
+So the repeated tweets: 982
+Retrieved stored in MYSQL Database:2103
+Hence, retrieved rate: 2103/12115=17.4%
+
+In the rts2016-batch-qrels.txt, there are
+Unique topics:  56
+Unique tweets:  53133
+Total tweets included: 67525
+So the repeated tweets: 14392
+Retrieved stored in MYSQL Database:41535
+Hence, retrieved rate: 41535/53133=78.2%
+
+To conclude, In the 2016's dataset, there are
+Unique topics:  max(122,56)=122
+Unique tweets:  11133+53133=64266
+Retrieved stored in MYSQL Database:2103+41535=43638
+Hence, 2016 overall retrieved rate:43638/64266=67.9%
+
+
+Combine all dataset from both 2016 and 2017. there are
+Unique topics:  188+122=310
+Unique tweets:  111440+64266=175706
+Retrieved stored in MYSQL Database:78495+43638=122133
+Hence, overall retrieved rate:122133/175706=69.5%
+
+
 

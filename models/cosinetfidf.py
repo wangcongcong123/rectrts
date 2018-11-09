@@ -5,7 +5,7 @@ from collections import Counter
 from extras import tools as tl
 idf_dict = {}
 max = 1
-
+SIM_THRESHOLD=0.5
 def getDFIDFVector(tokens):
     vector_dict={}
     words_counted = Counter(tokens)

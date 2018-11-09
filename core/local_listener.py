@@ -26,7 +26,7 @@ class LocalListener:
 
     # if there is no supervised machine learning algorithm appled, all status in database are used for testing
     def get_test_status(self):
-        sql = "select * from status"
+        sql = "select * from status order by topic_label"
         self.cursor.execute(sql)
         try:
             self.cursor.execute(sql)
@@ -60,6 +60,11 @@ class LocalListener:
             self.db.close()
         return results
 
+    def get_status_by_topiclist(self, topiclist):
+        results=()
+        for topic in topiclist:
+            results+=self.get_status_by_topic(topic)
+        return results
 
     def listen(self, executor):
         # print("here is listenning local status")
@@ -89,7 +94,8 @@ class LocalListener:
         #         count_dic[each[2]] += 1
         print(count_dic)
 
-
 if __name__ == '__main__':
     pass
+    # ll=LocalListener()
+    # print(len(ll.get_status_by_topiclist(["RTS46","RTS47"])))
     # locallistener.count()

@@ -1,22 +1,29 @@
 
-
-uni_topic_dict={}
-uni_tweet_dict={}
-
 def rts_mobile_dataset_count():
+    uni_topic_dict={}
+    uni_tweet_dict = {}
     uni_topic_count=0
     uni_tweet_count=0
     with open("TRECdataset/rts2017-mobile-qrels.txt") as f:
         alllines = f.read().split("\n")
         for eachline in alllines:
             linecolumns=eachline.split()
-            if linecolumns[0] not in uni_topic_dict:
-                uni_topic_count+=1
-                uni_topic_dict[linecolumns[0]]=1
+            # if linecolumns[0] not in uni_topic_dict:
+            #     # uni_topic_count+=1
+            #     uni_topic_dict[linecolumns[0]]=1
             if linecolumns[1] not in uni_tweet_dict:
-                uni_tweet_count+=1
+                # uni_tweet_count+=1
                 uni_tweet_dict[linecolumns[1]]=1
-
+    with open("TRECdataset/rts2017-batch-qrels.txt") as f:
+        alllines = f.read().split("\n")
+        for eachline in alllines:
+            linecolumns = eachline.split()
+            if linecolumns[0] not in uni_topic_dict:
+                uni_topic_count += 1
+                uni_topic_dict[linecolumns[0]] = 1
+            if linecolumns[2] not in uni_tweet_dict:
+                uni_tweet_count += 1
+                uni_tweet_dict[linecolumns[2]] = 1
     print("Unique topics: ",uni_topic_count)
     print("Unique tweets: ",uni_tweet_count)
 
@@ -46,6 +53,9 @@ def get_tweep_error_record(filename):
                     tweeperrorscount[errorstring]=1
     return tweeperrorscount
 
+
+
+
 def count_rate_limit_error(filename):
     alltweetsidwithratelimiterror={}
     with open(filename,"r") as sf:
@@ -60,9 +70,10 @@ def count_rate_limit_error(filename):
                         f.write(tweetid+"\n")
                     alltweetsidwithratelimiterror[tweetid]=1
     return alltweetsidwithratelimiterror
-
 if __name__ == '__main__':
-    print(get_tweep_error_record("error_log_sql_excluded.txt"))
+    # print(get_tweep_error_record("error_log_sql_excluded.txt"))
+    rts_mobile_dataset_count()
+
     # regenerate_file("error_log_sql_excluded.txt","error_log_sql_excluded.txt")
     # alltweetsidwithratelimiterror= count_rate_limit_error("error_log_sql_excluded.txt")
     # print("the number of all unqiue tweets with rate limit: ",len(alltweetsidwithratelimiterror))

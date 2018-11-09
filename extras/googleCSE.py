@@ -1,9 +1,37 @@
 import operator
 import pprint
+import re
+
 from googleapiclient.discovery import build
 import json
 import extras.tools as tl
 import parameters
+import requests
+import bs4
+
+def cleanhtml(raw_html):
+  cleanr = re.compile('<.*?>')
+  cleantext = re.sub(cleanr, '', raw_html)
+  return cleantext
+
+def expand_by_google_url(query):
+    query_tokens = tl.textParse(query)
+    contents = requests.get("https://www.google.com/search?q="+query).content
+    soup2 = bs4.BeautifulSoup(contents,features="html.parser")
+    returnlist=soup2.findAll("span", {"class": "st"})
+    expansion_string=""
+    for element in returnlist:
+        expansion_string+=cleanhtml(str(element))+" "
+    # print(expansion_string)
+    expansion_tokens = tl.textParseWithFreq(expansion_string)
+    sorted_expansion_tokens = sorted(expansion_tokens.items(), key=operator.itemgetter(1), reverse=True)
+    # any candidate token with frequency larger than QUERY_EXPANSION_FRE_THRESHOLD(2 by default) is selected
+    for expanded_token, fre in sorted_expansion_tokens:
+        if not expanded_token.isnumeric():
+            if fre >= parameters.QUERY_EXPANSION_FRE_THRESHOLD:
+                if expanded_token not in query_tokens:
+                    query_tokens.append(expanded_token)
+    return query_tokens
 
 def expand_by_google(query):
     # Top 10 google search result selected for query expansion
@@ -31,5 +59,6 @@ def expand_by_google(query):
                     query_tokens.append(expanded_token)
     return query_tokens
 
-# if __name__ == '__main__':
-#     pprint.pprint(expand_by_google("Zika in Ecuador"))
+if __name__ == '__main__':
+    print(expand_by_google_url("HPV vaccine side effects"))
+    # pprint.pprint(expand_by_google())
