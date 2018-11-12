@@ -75,7 +75,7 @@ def main():
                 err_log="\n"+id+"@MYSQLError:"+str(err)
                 print("\n"+id+"@MYSQLError:"+str(err))
                 write_to_log(err_log)
-                db.rollback
+                db.rollback()
     db.close()
 
 if __name__ == '__main__':

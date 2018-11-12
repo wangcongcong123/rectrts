@@ -53,6 +53,10 @@ class OnlineListener(tweepy.StreamListener):
         if status_code == 420:
             return False
 
+CONSUMER_KEY = "735080426956431360-ZQIvRorrq9cESFeGlGNvcbq0h5HSaOC"
+CONSUMER_SECRET = "axPUNtBCnkSE762iFPlgvGTfcfrelAf96kJaq2HCggGNQ"
+TWITTER_APP_KEY = "fldVf72UB39XbqdzUAPN7UusR"
+TWITTER_APP_SECRET = "IsS82Is9wAivJnqjsWvqP2kgikpq2VUD7QQiZVg4OvwfIMIICj"
 
 auth = tweepy.OAuthHandler(private.TWITTER_APP_KEY, private.TWITTER_APP_SECRET)
 auth.set_access_token(private.TWITTER_KEY, private.TWITTER_SECRET)
@@ -83,10 +87,6 @@ else: print(status_json['full_text'])
 # # stream.filter(languages=["en"])
 # stream.sample(languages=["en"])
 
-CONSUMER_KEY = "735080426956431360-ZQIvRorrq9cESFeGlGNvcbq0h5HSaOC"
-CONSUMER_SECRET = "axPUNtBCnkSE762iFPlgvGTfcfrelAf96kJaq2HCggGNQ"
-TWITTER_APP_KEY = "fldVf72UB39XbqdzUAPN7UusR"
-TWITTER_APP_SECRET = "IsS82Is9wAivJnqjsWvqP2kgikpq2VUD7QQiZVg4OvwfIMIICj"
 
 # import twitter
 # api = twitter.Api(consumer_key=CONSUMER_KEY,
