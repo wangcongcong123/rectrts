@@ -8,14 +8,15 @@ class Executor:
         pass
 
     def excute(self,tweet):
-        self.processor.expand_query(" ")
-        self.processor.preprocess(tweet)
-        self.processor.compute_relevance(" "," ")
-        self.processor.compute_redundancy(" "," ")
-        self.processor.ranking(" ")
-
+        self.processor.start(tweet)
 
 if __name__ == '__main__':
+    import timeit
+    print("-----Start Executing------")
+    start = timeit.default_timer()
     executor = Executor()
-    listener_designator.listen("online",executor)
+    listener_designator.listen("local",executor)
+    print("-----End Executing------")
+    stop = timeit.default_timer()
+    print('Time: ', stop - start)
 

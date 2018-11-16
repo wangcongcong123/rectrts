@@ -16,12 +16,19 @@ parser.add_argument('-q', required=True, metavar='qrels', help='batch qrels file
 parser.add_argument('-c', required=True, metavar='clusters', help='cluster anotations')
 parser.add_argument('-t', required=True, metavar='tweetsdayepoch', help='tweets2dayepoch file')
 parser.add_argument('-r', required=True, metavar='run', help='run file')
-
-args = parser.parse_args()
-qrels_path = vars(args)['q']
-clusters_path = vars(args)['c']
-file_tweet2day = vars(args)['t']
-run_path = vars(args)['r']
+# =>
+# args = parser.parse_args()
+# qrels_path = vars(args)['q']
+# clusters_path = vars(args)['c']
+# file_tweet2day = vars(args)['t']
+# run_path = vars(args)['r']
+# =>
+# =>
+qrels_path = "rts2017-batch-qrels.txt"
+clusters_path = "rts2017-batch-clusters.json"
+file_tweet2day = "rts2017-batch-tweets2dayepoch.txt"
+run_path = "submissions/hljit/scenarioB/qFB_url"
+# =>
 
 
 K = 10
@@ -78,10 +85,11 @@ for topic in clusters_topic_dt:
 runname = ''
 run_dt = {}
 run_epoch_dt = {}
-for line in gzip.open(run_path, "r").readlines():
 
-    line = line.decode().strip().split()
-
+# => for line in gzip.open(run_path, "r").readlines():
+for line in open(run_path, "r").readlines():
+    #=>line = line.decode().strip().split()
+    line = line.strip().split()
     runname = line[6]
     topic = line[1]
     if topic in qrels_dt:

@@ -28,7 +28,7 @@ There are several types of error happened while retrieving the tweets. There are
 . Not authorized to see the status: 1222
 . Failed to send request: 1
 
-In the rts2017-mobile-qrels.txt, there are
+In the rts2017-batch-qrels.txt, there are
 Unique topics:  97
 Unique tweets:  69484
 Total tweets included: 94307

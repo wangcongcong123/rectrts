@@ -2,7 +2,7 @@ from core.processor import Processor
 import time
 import pymysql
 
-
+import timeit
 class LocalListener:
     db = pymysql.connect("localhost", "root", "123", "trecrts")
     cursor = db.cursor()
@@ -68,11 +68,25 @@ class LocalListener:
 
     def listen(self, executor):
         # print("here is listenning local status")
-        test_status = self.get_test_status()
-        for each in test_status:
-            time.sleep(1)
-            executor.excute(each)
-        # return test_status
+        with open("../dataset/log-tweetIds-in-db-2017-and-epoch.txt") as f:
+            lines=f.readlines()
+            count=0
+            length_t=len(lines)
+            for each in lines:
+                start = timeit.default_timer()
+                count+=1
+                columns=each.strip().split()
+                tweetid=columns[0]
+                tweet=self.get_status_byId(tweetid)
+                rebuild_tweet=(tweetid,columns[1],columns[2],tweet[0][6])
+                # time.sleep(1)
+                # print(rebuild_tweet)
+                #rebuild_tweet format:
+                #('891035114838294528', '20170728', '1501274300', 'Why are you like this???? @anakarendavilaa https://t.co/pbNHPb2MgO')
+                executor.excute(rebuild_tweet)
+                stop = timeit.default_timer()
+                # print('Time: ', stop - start)
+                print("Processing Tweet","(",length_t,")",count)
 
     def count(self):
         count_dic = {}
@@ -93,9 +107,9 @@ class LocalListener:
         #     else:
         #         count_dic[each[2]] += 1
         print(count_dic)
-
 if __name__ == '__main__':
     pass
     # ll=LocalListener()
+    # ll.listen()
     # print(len(ll.get_status_by_topiclist(["RTS46","RTS47"])))
     # locallistener.count()

@@ -31,7 +31,9 @@ parser.add_argument('-r', required=True, metavar='run', help='run file')
 qrels_path = "rts2017-batch-qrels.txt"
 clusters_path = "rts2017-batch-clusters.json"
 file_tweet2day = "rts2017-batch-tweets2dayepoch.txt"
-run_path = "submissions/BJUT/scenarioA/BL3-A"
+# the program will fail if running on the following file because all elements in rts2017-batch-clusters.json are in rts2017-batch-tweets2dayepoch.txt but not in the following one
+# file_tweet2day = "../log-tweetIds-in-db-2017-and-epoch.txt"
+run_path = "submissions/IRIT/scenarioA/IRIT-Run3-A-U"
 
 K = 10
 days = []
@@ -42,6 +44,7 @@ for i in range(1, 6):
 unixTimestamp = datetime.utcfromtimestamp(0)
 
 # qrels dictionary, {topic: {tweetid: gain}}
+
 qrels_dt = {}
 clusters_day_dt = {}
 for line in open(qrels_path).readlines():
@@ -58,18 +61,16 @@ for line in open(qrels_path).readlines():
     else:
         qrels_dt[topic] = {tweetid: score}
         clusters_day_dt[topic] = {day: [] for day in days}
-
-
 # created timestamp and date for each tweetid in the qrel
 # tweet2day_dt: {tweetid: date}
 # tweet2epoch_dt: {tweetid: epoch time}
 tweet2day_dt = {}
 tweet2epoch_dt = {}
+
 for line in open(file_tweet2day).readlines():
     line = line.strip().split()
     tweet2day_dt[line[0]] = line[1]
     tweet2epoch_dt[line[0]] = line[2]
-
 
 clusters_clusterid_dt = {}
 clusters_topic_dt = json.load(open(clusters_path))
@@ -83,10 +84,11 @@ for topic in clusters_topic_dt:
                 clusters_clusterid_dt[topic][tweetid] = clusterid
                 clusters_day_dt[topic][tweet2day_dt[tweetid]].append(tweetid)
 
-
 # run dictionaries
 # run_dt: {topic: {date: [tweetids}}
 # run_epoch_dt: {topic: {tweetid: adjusted epoch time}}
+
+
 runname = ''
 run_dt = {}
 run_epoch_dt = {}
@@ -115,14 +117,14 @@ for line in run_lines:
                 run_epoch_dt[topic][tweetid] = epoch
 
 
-
 print("{0}\t{1:5s}\t{2:6s}\t{3:6s}\t{4:6s}\t{5:6s}\t{6:10s}\t{7:10s}\t{8:10s}\t{9:15s}\t{10:15s}\t{11}".format(
     "runtag".ljust(len(runname)), "topic",
     "EGp", "EG1", "nCGp", "nCG1",
     "GMP.33", "GMP.50", "GMP.66",
     "mean_latency", "median_latency",
     "total_length"))
-
+# import pprint
+# pprint.pprint(qrels_dt)
 total_eg1, total_egp, total_ncg1, total_ncgp, total_gmp_33, total_gmp_50, total_gmp_66 = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
 latency_gained = []
 total_length = 0
@@ -141,7 +143,6 @@ for topic in sorted(qrels_dt):
                 interesting = True
                 if clusterid not in max_gain_dt:
                     max_gain_dt[clusterid] = qrels_dt[topic][tweetid]
-
                 else:
                     max_gain_dt[clusterid] = max(max_gain_dt[clusterid], qrels_dt[topic][tweetid])
         if interesting:
@@ -191,7 +192,6 @@ for topic in sorted(qrels_dt):
                 topic_ncg1 += 1
                 topic_egp += 1
                 topic_ncgp += 1
-
             elif topic in run_dt and day in run_dt[topic]:
                 push_num = len(run_dt[topic][day])
                 topic_egp += (1 - push_num / float(K))
@@ -223,7 +223,8 @@ for topic in sorted(qrels_dt):
 
     total_length += length
     latency_gained += topic_latency
-
+# import pprint
+# pprint.pprint(len(qrels_dt))
 total_eg1 /= len(qrels_dt)
 total_egp /= len(qrels_dt)
 total_ncg1 /= len(qrels_dt)
