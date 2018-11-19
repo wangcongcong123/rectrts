@@ -36,16 +36,17 @@ class Processor:
             profile_tokens=self.preprocess(profile['title']+" "+profile['description'])
             tweet_tokens = self.preprocess(tweet[3])
             relscore=self.compute_relevance(tweet_tokens, profile_tokens)
+
             # print("The consine similarity between profile ", profile['topid'], "(", profile['title'], ") and ",
             #       tweet[3], "(", tweet[0], "): ")
-            if relscore>0.3:
+            if relscore>0.0:
                 print(relscore)
                 # self.compute_redundancy(" ", " ")
                 # self.ranking(" ")
                 from datetime import datetime
-                ts = int(tweet[2])
-                datetime=datetime.utcfromtimestamp(ts).strftime('%m-%d-%H:%M:%S')
-                self.submit_result(profile['topid'],tweet[0],datetime)
+                # created = int(tweet[2])
+                # datetime=datetime.utcfromtimestamp(ts).strftime('%m%d-%H:%M:%S')
+                self.submit_result(profile['topid'], tweet[0], tweet[2], score=relscore)
 
     def expand_query(self, profile):
         profile_title = profile['title']
@@ -78,11 +79,10 @@ class Processor:
         pass
 
 #Scenario A format: RTS46	891133525792931840	0729-03:10:09	BJUT-BL1-04
-    def submit_result(self, topicid,tweetid,time,runanme="Jaccard-No-Expansion-Run"):
+    def submit_result(self, topicid,tweetid,time,runanme="Jaccard-No-Expansion-Run-all-withsocre",score=0):
         with open("../submission/"+runanme,"a") as f:
-            submit_str=topicid+"\t"+tweetid+"\t"+time+"\t"+runanme+"\n"
+            submit_str=topicid+"\t"+tweetid+"\t"+time+"\t"+runanme+"\t"+str(score)+"\n"
             f.write(submit_str)
-
 # def timetest():
 #     profile_title = "HPV vaccine side effects"
 #     from extras import googleCSE as gcse

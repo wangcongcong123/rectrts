@@ -15,7 +15,9 @@ class LocalListener:
         for each in results:
             created_time = each[4]
             timestamp_ = time.mktime(datetime.datetime.strptime(created_time, "%Y-%m-%d %H:%M:%S").timetuple())
-            rebuild_tweet = (each[0], created_time.split()[0].replace("-", ""), int(timestamp_), each[1])
+            #2017-08-04 03:02:39
+            reformattime=created_time.split()[0].split("-")[1]+created_time.split()[0].split("-")[2]+"-"+created_time.split()[1]
+            rebuild_tweet = (each[0], created_time.split()[0].replace("-", ""), reformattime, each[1])
             self.simulated_collection.append(rebuild_tweet)
         self.length_t=len( self.simulated_collection)
     

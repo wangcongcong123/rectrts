@@ -33,7 +33,7 @@ clusters_path = "rts2017-batch-clusters.json"
 file_tweet2day = "rts2017-batch-tweets2dayepoch.txt"
 # the program will fail if running on the following file because all elements in rts2017-batch-clusters.json are in rts2017-batch-tweets2dayepoch.txt but not in the following one
 # file_tweet2day = "../log-tweetIds-in-db-2017-and-epoch.txt"
-run_path = "submissions/IRIT/scenarioA/IRIT-Run3-A-U"
+run_path = "submissions/Jaccard-No-Expansion-Run-all-withsocre-NT"
 
 K = 10
 days = []
@@ -108,6 +108,7 @@ for line in run_lines:
             run_dt[topic] = {}
             run_epoch_dt[topic] = {}
         if tweetid in tweet2day_dt and tweet2day_dt[tweetid] in days:
+            # epoch+=3600 TODO
             if epoch >= int(tweet2epoch_dt[tweetid]):
                 day = tweet2day_dt[tweetid]
                 if day in run_dt[topic]:

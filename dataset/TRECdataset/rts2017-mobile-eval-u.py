@@ -28,7 +28,8 @@ unixTimestamp = datetime.utcfromtimestamp(0)
 
 
 file_qrels_path = "rts2017-mobile-qrels.txt"
-run_path = "submissions/IRIT/scenarioA/IRIT-Run3-A-U"
+run_path = "submissions/Jaccard-No-Expansion-Run-all-withsocre-NT"
+# run_path="/Users/wangcongcong/Desktop/rectrts/dataset/TRECdataset/submissions/scenarioA/advanse_lirmm-Run1-A"
 file_tweet2day = "rts2017-batch-tweets2dayepoch.txt"
 # the result will be the same if running on the following file
 # file_tweet2day = "../log-tweetIds-in-db-2017-and-epoch.txt"
@@ -45,7 +46,6 @@ for i, line in enumerate(open(file_qrels_path)):
     topic = line[0]
     tweetid = line[1]
     judgement = int(line[2])
-
     if topic not in qrels_dt:
         qrels_dt[topic] = {tweetid: [0, 0, 0]}
     if tweetid not in qrels_dt[topic]:
@@ -88,8 +88,13 @@ for line in run_lines:
         tweetid = line[1]
         pushed_at = datetime.strptime("17" + line[2], "%y%m%d-%H:%M:%S")
         epoch = int((pushed_at - unixTimestamp).total_seconds())
+
+
         if tweetid in tweet2epoch_dt:
             created_at = tweet2epoch_dt[tweetid]
+            #-------ADD
+            # epoch=epoch+3600
+            #--------ADD
             if epoch >= created_at and tweetid in qrels_dt[topic]:
                 rel_dt[topic] += qrels_dt[topic][tweetid][0]
                 non_rel_dt[topic] += qrels_dt[topic][tweetid][1]
