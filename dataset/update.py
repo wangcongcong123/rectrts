@@ -17,7 +17,6 @@ cursor = db.cursor()
 #     ft.write_to_log("tweets-to-update",tweetid+"\n")
 from tweepy import TweepError
 
-
 def updateRateLimit():
     id_list = []
     with open("log-get-full-tweet.txt", "r") as f:

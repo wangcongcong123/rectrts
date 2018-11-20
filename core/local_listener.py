@@ -2,7 +2,13 @@
 import time
 import datetime
 import pymysql
-
+import logging
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO
+                    # ,handlers=[
+                    #     # logging.FileHandler("{0}/{1}.log".format("/Users/wangcongcong/Desktop", "gensim")),
+                    #     logging.StreamHandler()
+                    # ]
+                    )
 import timeit
 class LocalListener:
     db = pymysql.connect("localhost", "root", "123", "trecrts")
@@ -110,7 +116,7 @@ class LocalListener:
             count += 1
             # print(rebuild_tweet)
             executor.excute(rebuild_tweet)
-            print("Processing Tweet", "(", self.length_t, ")", count)
+            logging.info("Processing Tweet"+"("+ str(self.length_t)+ ")" +str(count))
         # print("here is listenning local status")
         # with open("../dataset/log-tweetIds-in-db-2017-and-epoch.txt") as f:
         #     lines=f.readlines()

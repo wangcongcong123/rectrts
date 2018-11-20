@@ -71,5 +71,5 @@ Unique tweets:  111440+64266=175706
 Retrieved stored in MYSQL Database:78495+43638=122133
 Hence, overall retrieved rate:122133/175706=69.5%
 
-
-
+statistics of all 2017 submission tweets
+the total length of unique tweets in all submissions are 547117 (excluding those in db)
