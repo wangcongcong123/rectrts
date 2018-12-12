@@ -14,8 +14,8 @@ import json
 import numpy
 from datetime import datetime
 import sys
-def evaluate(run_path="None"):
 
+def evaluate(run_path="None", printswitch=False):
     parser = argparse.ArgumentParser(description='Evaluation script for TREC 2017 RTS '
                                                  'scenario A with batch NIST assessor judgments')
     parser.add_argument('-q', required=True, metavar='qrels', help='batch qrels file')
@@ -29,9 +29,9 @@ def evaluate(run_path="None"):
     # file_tweet2day = vars(args)['t']
     # run_path = vars(args)['r']
 
-    qrels_path = "support/rts2017-batch-qrels.txt"
-    clusters_path = "support/rts2017-batch-clusters.json"
-    file_tweet2day = "support/rts2017-batch-tweets2dayepoch.txt"
+    qrels_path = "submission/support/rts2017-batch-qrels.txt"
+    clusters_path = "submission/support/rts2017-batch-clusters.json"
+    file_tweet2day = "submission/support/rts2017-batch-tweets2dayepoch.txt"
     # the program will fail if running on the following file because all elements in rts2017-batch-clusters.json are in rts2017-batch-tweets2dayepoch.txt but not in the following one
     # file_tweet2day = "../log-tweetIds-in-db-2017-and-epoch.txt"
     # run_path = "submissions/Jaccard-No-Expansion-Run-all-withsocre-NT"
@@ -84,32 +84,29 @@ def evaluate(run_path="None"):
                 if tweet2day_dt[tweetid] in days:
                     clusters_clusterid_dt[topic][tweetid] = clusterid
                     clusters_day_dt[topic][tweet2day_dt[tweetid]].append(tweetid)
-
     # run dictionaries
     # run_dt: {topic: {date: [tweetids}}
     # run_epoch_dt: {topic: {tweetid: adjusted epoch time}}
-
-
-    runname = ''
+    runname = ""
     run_dt = {}
     run_epoch_dt = {}
     run_lines = open(run_path).readlines()
     if len(run_lines) == 0:
-        print("This is an empty run.")
-        sys.exit()
+        return "\t".join([run_path.split("/")[1], "All", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"])
+        # sys.exit()
     for line in run_lines:
         line = line.strip().split()
         runname = line[3]
         topic = line[0]
         if topic in qrels_dt:
             tweetid = line[1]
-            pushed_at = datetime.strptime("17"+line[2], "%y%m%d-%H:%M:%S")
+            pushed_at = datetime.strptime("17" + line[2], "%y%m%d-%H:%M:%S")
             epoch = int((pushed_at - unixTimestamp).total_seconds())
             if topic not in run_dt:
                 run_dt[topic] = {}
                 run_epoch_dt[topic] = {}
             if tweetid in tweet2day_dt and tweet2day_dt[tweetid] in days:
-                # epoch+=3600 TODO
+                # epoch+=136000
                 if epoch >= int(tweet2epoch_dt[tweetid]):
                     day = tweet2day_dt[tweetid]
                     if day in run_dt[topic]:
@@ -117,7 +114,6 @@ def evaluate(run_path="None"):
                     else:
                         run_dt[topic][day] = [tweetid]
                     run_epoch_dt[topic][tweetid] = epoch
-
 
     # print("{0}\t{1:5s}\t{2:6s}\t{3:6s}\t{4:6s}\t{5:6s}\t{6:10s}\t{7:10s}\t{8:10s}\t{9:15s}\t{10:15s}\t{11}".format(
     #     "runtag".ljust(len(runname)), "topic",
@@ -164,7 +160,8 @@ def evaluate(run_path="None"):
                                 # latency of each tweet is with respect to the first tweet in the cluster
                                 first_tweetid_in_cluster = clusters_topic_dt[topic]["clusters"][clusterid]["tweets"][0]
                                 delay = (
-                                    float(run_epoch_dt[topic][tweetid]) - float(tweet2epoch_dt[first_tweetid_in_cluster]))
+                                        float(run_epoch_dt[topic][tweetid]) - float(
+                                    tweet2epoch_dt[first_tweetid_in_cluster]))
                                 delay = max(0, delay)
                         gains.append(gain)
                         if gain > 0:
@@ -210,11 +207,13 @@ def evaluate(run_path="None"):
         topic_gmp_66 /= len(days)
         mean_topic_latency = numpy.mean(topic_latency) if topic_latency != [] else 0
         median_topic_latency = numpy.median(topic_latency) if topic_latency != [] else 0
-        # print("{0}\t{1:5s}\t{2:.4f}\t{3:.4f}\t{4:.4f}\t{5:.4f}\t{6:<10.4f}\t{7:<10.4f}\t{8:<10.4f}\t{9:<15.1f}\t{10:<15.1f}\t{11}".format(
-        #     runname, topic, topic_egp, topic_eg1, topic_ncgp, topic_ncg1,
-        #     topic_gmp_33, topic_gmp_50, topic_gmp_66,
-        #     mean_topic_latency, median_topic_latency,
-        #     length))
+        if printswitch:
+            print(
+                "{0}\t{1:5s}\t{2:.4f}\t{3:.4f}\t{4:.4f}\t{5:.4f}\t{6:<10.4f}\t{7:<10.4f}\t{8:<10.4f}\t{9:<15.1f}\t{10:<15.1f}\t{11}".format(
+                    runname, topic, topic_egp, topic_eg1, topic_ncgp, topic_ncg1,
+                    topic_gmp_33, topic_gmp_50, topic_gmp_66,
+                    mean_topic_latency, median_topic_latency,
+                    length))
         total_eg1 += topic_eg1
         total_egp += topic_egp
         total_ncg1 += topic_ncg1
@@ -235,15 +234,9 @@ def evaluate(run_path="None"):
     total_gmp_50 /= len(qrels_dt)
     total_gmp_66 /= len(qrels_dt)
 
-    # print("{0}\t{1:5s}\t{2:.4f}\t{3:.4f}\t{4:.4f}\t{5:.4f}\t{6:<10.4f}\t{7:<10.4f}\t{8:<10.4f}\t{9:<15.1f}\t{10:<15.1f}\t{11}".format(
-    #         runname, "All", total_egp, total_eg1, total_ncgp, total_ncg1,
-    #         total_gmp_33, total_gmp_50, total_gmp_66,
-    #         numpy.mean(latency_gained) if latency_gained != [] else 0,
-    #         numpy.median(latency_gained) if latency_gained != [] else 0,
-    #         total_length))
     return "{0}\t{1:5s}\t{2:.4f}\t{3:.4f}\t{4:.4f}\t{5:.4f}\t{6:<10.4f}\t{7:<10.4f}\t{8:<10.4f}\t{9:<15.1f}\t{10:<15.1f}\t{11}".format(
-            runname, "All", total_egp, total_eg1, total_ncgp, total_ncg1,
-            total_gmp_33, total_gmp_50, total_gmp_66,
-            numpy.mean(latency_gained) if latency_gained != [] else 0,
-            numpy.median(latency_gained) if latency_gained != [] else 0,
-            total_length)
+        runname, "All", total_egp, total_eg1, total_ncgp, total_ncg1,
+        total_gmp_33, total_gmp_50, total_gmp_66,
+        numpy.mean(latency_gained) if latency_gained != [] else 0,
+        numpy.median(latency_gained) if latency_gained != [] else 0,
+        total_length)

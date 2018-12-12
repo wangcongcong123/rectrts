@@ -4,11 +4,7 @@ from extras import tools as tl
 from extras import googleCSE as gcse
 from core import configfile
 import logging
-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO
-                    # ,handlers=[
-                    #     logging.FileHandler("{0}/{1}.log".format("/Users/wangcongcong/Desktop/rectrts/dataset/log/", configfile.SUBMIT_FILE_NAME)),
-                    # ]
-                    )
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 class Processor:
     def __init__(self, model_name=configfile.MODEL):
@@ -20,6 +16,10 @@ class Processor:
             from models import jaccardModel
             self.model_name = model_name
             self.model = jaccardModel
+        elif model_name == "negativeKL":
+            from models import negativeKL
+            self.model_name = model_name
+            self.model = negativeKL
         elif model_name == "cosinetfidf":
             from models import cosinetfidf as cti
             from core.local_listener import LocalListener
@@ -31,10 +31,9 @@ class Processor:
             logging.info("Model cosinetfidf is done computing IDF")
             self.model_name = model_name
             self.model=cti
-
     @classmethod
     def load_profiles(cls):
-        with open("../dataset/TRECdataset/TREC2017-RTS-topics-final-expansion.json") as f:
+        with open(configfile.QUERY_PATH) as f:
             loaded_profiles = json.load(f)
         return loaded_profiles
 
@@ -53,7 +52,7 @@ class Processor:
             relscore=self.compute_relevance(tweet_tokens, profile_tokens)
             # print("The consine similarity between profile ", profile['topid'], "(", profile['title'], ") and ",
             #       tweet[3], "(", tweet[0], "): ")
-            if relscore>0.3:
+            if relscore>configfile.REL_THRESHOLD:
                 # print(relscore)
                 # self.compute_redundancy(" ", " ")
                 # self.ranking(" ")
@@ -90,6 +89,8 @@ class Processor:
             profilevec=self.model.getDFIDFVector(profile_info)
             tweetvec=self.model.getDFIDFVector(tweet_info)
             simscore=self.model.get_cosine(profilevec,tweetvec)
+        elif self.model_name == "negativeKL":
+            simscore = self.model.kldiv(profile_info, tweet_info)
         return simscore
 
     def compute_redundancy(self, tweet1, tweet2):
@@ -101,7 +102,7 @@ class Processor:
         pass
 #Scenario A format: RTS46	891133525792931840	0729-03:10:09	BJUT-BL1-04
     def submit_result(self, topicid,tweetid,time,runanme=configfile.SUBMIT_FILE_NAME,score=0):
-        with open("../submission/"+runanme,"a") as f:
+        with open("submission/"+runanme,"a") as f:
             submit_str=topicid+"\t"+tweetid+"\t"+time+"\t"+runanme+"\t"+str(score)+"\n"
             f.write(submit_str)
 

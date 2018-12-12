@@ -1,20 +1,27 @@
 __author__ = 'congcong'
-
 import math
 from collections import Counter
 from extras import tools as tl
+
 idf_dict = {}
-max = 1
-SIM_THRESHOLD=0.5
+max = 0
+SIM_THRESHOLD = 0.5
+
+
 def getDFIDFVector(tokens):
-    vector_dict={}
+    vector_dict = {}
     words_counted = Counter(tokens)
+    # docLen=len(words_counted.values())
     unique_words = list(words_counted.keys())
     for each in unique_words:
         idf = max if each not in idf_dict else idf_dict[each]
-        wd_tf_idf = words_counted[each] * idf
-        vector_dict[each]=wd_tf_idf
+        wd_tf_idf = (words_counted[each]) * idf
+        # This is equivelent to the following line
+        # wd_tf_idf = (words_counted[each]/docLen) * idf
+        vector_dict[each] = wd_tf_idf
+        # print("wd_tf_idf", wd_tf_idf)
     return vector_dict
+
 
 # Computes TF for words in each doc, DF for all features in all docs; finally whole IDF dict
 def computeIDFByDocs(tweet_batch_withid):
@@ -33,10 +40,11 @@ def computeIDFByDocs(tweet_batch_withid):
     global max
     global idf_dict
     for word in all_words:
-        idf=math.log(n / df_counts[word], 10)
+        idf = math.log(n / df_counts[word], 10)
         idf_dict[word] = idf
         if idf > max:
-            max=idf
+            max = idf
+
 
 def get_cosine(vec1, vec2):
     intersection = set(vec1.keys()) & set(vec2.keys())

@@ -1,24 +1,21 @@
+import timeit
 
-from local_listener import LocalListener
-from online_listener import  OnlineListener
-import time
+from core.local_listener import LocalListener
+from core.online_listener import OnlineListener
 import settings
 import tweepy
-import dataset
 
-def listen(option,executor):
-
-    if option =="local":
-        listener=LocalListener()
+def listen(option, executor):
+    if option == "local":
+        listener = LocalListener()
         listener.listen(executor)
-    elif option=="online":
-        print("online")
+    elif option == "online":
         auth = tweepy.OAuthHandler(settings.TWITTER_APP_KEY, settings.TWITTER_APP_SECRET)
         auth.set_access_token(settings.TWITTER_KEY, settings.TWITTER_SECRET)
         api = tweepy.API(auth)
         stream_listener = OnlineListener()
-        stream_listener.setExecutor(executor)
-        stream= tweepy.Stream(auth=api.auth, listener=stream_listener)
+        stream_listener.setParaUp(executor)
+        stream = tweepy.Stream(auth=api.auth, listener=stream_listener,tweet_mode='extended')
         # stream.filter(track=["china"])
         # stream.filter(languages=["en"])
         stream.sample(languages=["en"])
@@ -27,5 +24,7 @@ def listen(option,executor):
     else:
         print("error, please give the option argument local or online")
 
-# if __name__ == '__main__':
-    # listen("local",new )
+if __name__ == '__main__':
+    listen("online",None)
+    stop = timeit.default_timer()
+

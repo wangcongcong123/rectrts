@@ -28,9 +28,9 @@ unixTimestamp = datetime.utcfromtimestamp(0)
 
 
 file_qrels_path = "rts2017-mobile-qrels.txt"
-run_path = "submissions/Jaccard-No-Expansion-Run-all-withsocre-NT"
+run_path = "submissions/BJUT/ScenarioA/BL3-A"
 # run_path="/Users/wangcongcong/Desktop/rectrts/dataset/TRECdataset/submissions/scenarioA/advanse_lirmm-Run1-A"
-file_tweet2day = "rts2017-batch-tweets2dayepoch.txt"
+file_tweet2day = "rts2017-mobile-tweets2dayepoch.txt"
 # the result will be the same if running on the following file
 # file_tweet2day = "../log-tweetIds-in-db-2017-and-epoch.txt"
 
@@ -118,7 +118,7 @@ for line in run_lines:
 # since we are counting each assessment from the crowd
 print("\t".join(["run", "topic", "relevant", "redundant", "not_relevant",
                  "online_utility(strict)", "online_utility(lenient)",
-                 "unjudged", "total_length", "mean_latency", "median_latency"]))
+                 "unjudged", "total_length", "mean_latency", "median_latency","coverage"]))
 
 str_my=",".join(["run", "topic", "relevant", "redundant", "not_relevant",
                  "online_utility(strict)", "online_utility(lenient)",
@@ -127,6 +127,7 @@ str_my=",".join(["run", "topic", "relevant", "redundant", "not_relevant",
 onlineU_strict = {topic: rel_dt[topic] - redun_dt[topic] - non_rel_dt[topic] for topic in rel_dt}
 onlineU_lenient = {topic: rel_dt[topic] + redun_dt[topic] - non_rel_dt[topic] for topic in rel_dt}
 
+coverage=0
 for topic in sorted(qrels_dt.keys()):
     # str_my+="\n"+",".join([runname, topic, str(rel_dt[topic]), str(redun_dt[topic]), str(non_rel_dt[topic]),
     #                  str(onlineU_strict[topic]),
@@ -134,6 +135,9 @@ for topic in sorted(qrels_dt.keys()):
     #                  str(unjudge_dt[topic]), str(run_dt[topic]),
     #                 str(round(numpy.mean(delay_list[topic]) if delay_list[topic] != [] else 0, 1)),
     #                 str(round(numpy.median(delay_list[topic]) if delay_list[topic] != [] else 0, 1))])
+    if run_dt[topic]>0:
+        coverage+=1
+
     print("\t".join([runname, topic, str(rel_dt[topic]), str(redun_dt[topic]), str(non_rel_dt[topic]),
                      str(onlineU_strict[topic]),
                      str(onlineU_lenient[topic]),
@@ -151,8 +155,10 @@ print("\t".join([runname, "All", str(sum(list(rel_dt.values()))),
                  str(sum(list(onlineU_strict.values()))), str(sum(list(onlineU_lenient.values()))),
                  str(sum(list(unjudge_dt.values()))), str(sum(list(run_dt.values()))),
                 str(round(numpy.mean(all_delay) if all_delay != [] else 0, 1)),
-                str(round(numpy.median(all_delay) if all_delay != [] else 0, 1))]))
+                str(round(numpy.median(all_delay) if all_delay != [] else 0, 1)),str(coverage/len(qrels_dt))]))
 
+print("coverage:",coverage/len(qrels_dt))
+# print(len(qrels_dt))
 # with open("result.csv","w") as f:
 #     f.write(str_my)
 # import pandas as pd

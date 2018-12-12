@@ -1,8 +1,9 @@
 from nltk.stem import PorterStemmer
 import nltk
-
 stopwords=[]
-with open("../filesupport/stopwordlist1","r") as f:
+
+#../filesupport/stopwordlist1 to filesupport/stopwordlist1 if error, so is the way round
+with open("filesupport/stopwordlist1","r") as f:
     stopwords=f.read().split("\n")
 
 #initial filtering for tweet

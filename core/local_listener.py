@@ -3,6 +3,7 @@ import time
 import datetime
 import pymysql
 import logging
+
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO
                     # ,handlers=[
                     #     # logging.FileHandler("{0}/{1}.log".format("/Users/wangcongcong/Desktop", "gensim")),
@@ -10,23 +11,33 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
                     # ]
                     )
 import timeit
+import core.configfile as configfile
+
+
 class LocalListener:
     db = pymysql.connect("localhost", "root", "123", "trecrts")
     cursor = db.cursor()
 
     def __init__(self):
-        self.simulated_collection=[]
-        results=LocalListener.get_status_2017()
-
+        self.simulated_collection = []
+        results = ()
+        if configfile.DB_SRC == "listenpool":
+            results = LocalListener.get_listenpool()
+        elif configfile.DB_SRC == "status":
+            results = LocalListener.get_status_2017()
         for each in results:
             created_time = each[4]
-            timestamp_ = time.mktime(datetime.datetime.strptime(created_time, "%Y-%m-%d %H:%M:%S").timetuple())
-            #2017-08-04 03:02:39
-            reformattime=created_time.split()[0].split("-")[1]+created_time.split()[0].split("-")[2]+"-"+created_time.split()[1]
+            # timestamp_ = time.mktime(datetime.datetime.strptime(created_time, "%Y-%m-%d %H:%M:%S").timetuple())
+            # 2017-08-04 03:02:39
+            reformattime = created_time.split()[0].split("-")[1] + created_time.split()[0].split("-")[2] + "-" + \
+                           created_time.split()[1]
             rebuild_tweet = (each[0], created_time.split()[0].replace("-", ""), reformattime, each[1])
+
+
+
             self.simulated_collection.append(rebuild_tweet)
-        self.length_t=len( self.simulated_collection)
-    
+        self.length_t = len(self.simulated_collection)
+
     # this a status by id which is used for debugging sometimes
     def get_status_byId(self, id):
         sql = "select * from status where id = %s" % (id)
@@ -48,7 +59,6 @@ class LocalListener:
             self.db.close()
         return results
 
-
     def get_train_status(self):
         pass
 
@@ -65,8 +75,8 @@ class LocalListener:
         return results
 
     # this method is used for playing around with tweets in small volumns
-    def get_topn_status(self,n):
-        sql = "select id,text,topic_label,relevance from status limit %d"%(n)
+    def get_topn_status(self, n):
+        sql = "select id,text,topic_label,relevance from status limit %d" % (n)
         self.cursor.execute(sql)
         try:
             self.cursor.execute(sql)
@@ -91,8 +101,21 @@ class LocalListener:
     # select count(*) from status where dataset_src like "rts2017%"
     @classmethod
     def get_status_2017(cls):
-        sql = "select id,text,topic_label,relevance,created from status where dataset_src like %s"%("'"+"rts2017%"+"'")
-        results=()
+        sql = "select id,text,topic_label,relevance,created from status where dataset_src like %s" % (
+                "'" + "rts2017%" + "'")
+        results = ()
+        try:
+            cls.cursor.execute(sql)
+            results = cls.cursor.fetchall()
+        except:
+            cls.db.rollback()
+            cls.db.close()
+        return results
+
+    @classmethod
+    def get_listenpool(cls):
+        sql = "select id,text,topic_label,relevance,created from listenpool"
+        results = ()
         try:
             cls.cursor.execute(sql)
             results = cls.cursor.fetchall()
@@ -102,11 +125,10 @@ class LocalListener:
         return results
 
     def get_status_by_topiclist(self, topiclist):
-        results=()
+        results = ()
         for topic in topiclist:
-            results+=self.get_status_by_topic(topic)
+            results += self.get_status_by_topic(topic)
         return results
-
 
     def listen(self, executor):
         # results=self.get_status_2017()
@@ -116,7 +138,7 @@ class LocalListener:
             count += 1
             # print(rebuild_tweet)
             executor.excute(rebuild_tweet)
-            logging.info("Processing Tweet"+"("+ str(self.length_t)+ ")" +str(count))
+            logging.info("Processing Tweet" + "(" + str(self.length_t) + ")" + str(count))
         # print("here is listenning local status")
         # with open("../dataset/log-tweetIds-in-db-2017-and-epoch.txt") as f:
         #     lines=f.readlines()
@@ -160,9 +182,12 @@ class LocalListener:
 
 
 if __name__ == '__main__':
-    pass
-    ll=LocalListener()
-    ll.listen()
+    # pass
+    # ll = LocalListener()
+    # ll.listen()
+
+    results = LocalListener.get_listenpool()
+    print(results)
     # results=ll.get_status_byIdlist(str(("760265746425479168","891688738383953922"))+"")
     # print(results)
     # for each in results:

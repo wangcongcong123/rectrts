@@ -31,6 +31,7 @@ if __name__ == '__main__':
             status_text = status_json['retweeted_status']['full_text']
         else:
             status_text = status_json['full_text']
+
         description = status.user.description
         loc = status.user.location
         coords = status.coordinates

@@ -1,76 +1,125 @@
-IRIT-IRIT-Run1-14,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precison(s),Presion(l),,,run,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precison(s),Presion(l),,My attempt,,,,,,,,,,,,,,
-HLJIT-testRun2-07,All,314,13,359,-58,-32,327,677,1.1,1,0.457725948,0.476676385,,,IRIT-IRIT-Run1-14,All,251,11,278,-38,-16,17,276,1.1,1,0.464814815,0.485185185,,,,,,,,,,,,,,,,
-HLJIT-testRun1-06,All,616,60,833,-277,-157,714,1470,38685.6,33446,0.408217362,0.447978794,,,HLJIT-testRun2-07,All,475,48,668,-241,-145,47,624,39151,33876,0.398824517,0.439126784,,,,,,,,,,,,,,,,
-IRIT-IRIT-Run2-12,All,501,59,803,-361,-243,746,1464,39362.1,35233,0.367571533,0.410858401,,,HLJIT-testRun1-06,All,392,51,608,-267,-165,58,588,39309.7,35438.5,0.372978116,0.42150333,,,,,,,,,,,,,,,Description,
-IRIT-IRIT-Run3-13,All,165,30,275,-140,-80,352,607,163.9,33,0.35106383,0.414893617,,,IRIT-IRIT-Run2-12,All,132,24,212,-104,-56,12,210,202.4,34,0.358695652,0.423913043,,Jaccard-No-Expansion-Run,All,193,30,312,-149,-89,523,800,0,0,0.360747664,0.41682243,No query expansion and novelty detection. Basic Jaccard(Threshold=0.3). Ignore latency,
-HLJIT-testRun3-08,All,247,45,419,-217,-127,470,875,124.8,29,0.347398031,0.41068917,,,HLJIT-testRun3-08,All,459,63,763,-367,-241,50,713,21971.2,21993,0.357198444,0.406225681,,,,,,,,,,,,,,,,
-BJUT-BL1-04,All,591,89,1032,-530,-352,812,1711,21460.3,21028,0.34521028,0.397196262,,,IRIT-IRIT-Run3-13,All,176,35,295,-154,-84,13,295,165.9,29,0.347826087,0.416996047,,,,,,,,,,,,,,,,
-BJUT-BL2-05,All,664,108,3675,-3119,-2903,2012,4353,80,36,0.149314144,0.17360018,,,BJUT-BL1-04,All,513,82,2826,-2395,-2231,79,1839,70.3,36,0.149956153,0.173925753,,,,,,,,,,,,,,,,
-BJUT-BL3-03,All,159,19,1565,-1425,-1387,895,1823,82.6,83,0.091222031,0.102122777,,,BJUT-BL2-05,All,122,12,1172,-1062,-1038,41,720,83.4,84,0.093415008,0.102603369,,,,,,,,,,,,,,,,
-,All,183,30,2067,-1914,-1854,890,2129,82.2,83,0.080263158,0.093421053,,,BJUT-BL3-03,All,139,22,1479,-1362,-1318,46,907,83.2,83,0.084756098,0.098170732,,,,,,,,,,,,,,,,
-,Scenario A runs by mobile accessors (Original Without Cleaning) Results (not consistent with the overview paper),,,,,,,,,,Sorted,,,,Scenario A runs by mobile accessors (updated with cleaning)   ,,,,,,,,,,,Sorted,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-runtag           ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-HLJIT-testRun2-07,topic,EGp   ,EG1   ,nCGp  ,nCG1  ,GMP.33    ,GMP.50    ,GMP.66    ,mean_latency   ,median_latency ,total_length,,,,runtag           ,topic,EGp   ,EG1   ,nCGp  ,nCG1  ,GMP.33    ,GMP.50    ,GMP.66    ,mean_latency   ,median_latency ,total_length,,,,,,,,,,,,,,,,,
-HLJIT-testRun1-06,All  ,0.363,0.2088,0.2808,0.1266,-0.272,-0.1566,-0.0479,119374.3,56743.5,621,,,,HLJIT-testRun2-07,All  ,0.3302,0.2223,0.2612,0.1534,-0.2099,-0.1189,-0.0332,119701.3,58858,492,,,,,,,,,,,,,,,,,
-IRIT-IRIT-Run1-14,All  ,0.3318,0.1811,0.261,0.1102,-0.3118,-0.1936,-0.0824,116649.1,49154,618,,,,HLJIT-testRun1-06,All  ,0.3098,0.2159,0.25,0.1561,-0.2236,-0.135,-0.0516,123366.3,52845,468,,,,,,,,,,,,,,,,,
-HLJIT-testRun3-08,All  ,0.2918,0.2571,0.2321,0.1974,-0.1195,-0.0615,-0.007,67554.5,1,320,,,,IRIT-IRIT-Run1-14,All  ,0.2756,0.2548,0.2254,0.2046,-0.0736,-0.0312,0.0086,70959.3,1,241,,,,,,,,,,,,,,,,,
-IRIT-IRIT-Run2-12,All  ,0.2426,0.1832,0.242,0.1826,-0.4618,-0.3086,-0.1645,101707.9,32254.5,773,,,,HLJIT-testRun3-08,All  ,0.2465,0.1924,0.2356,0.1815,-0.3198,-0.2091,-0.1049,112678.8,34445,566,,,,,,,,,,,,,,,,,
-IRIT-IRIT-Run3-13,All  ,0.2212,0.2041,0.1996,0.1825,-0.0942,-0.0557,-0.0195,96894.1,14768,201,,,,IRIT-IRIT-Run2-12,All  ,0.2147,0.2021,0.1975,0.1848,-0.071,-0.0406,-0.0119,88093.5,3796,162,,,,,,,,,,,,,,,,,
-BJUT-BL2-05,All  ,0.2194,0.1895,0.2015,0.1716,-0.1853,-0.1221,-0.0626,98864.9,15623,320,,,,IRIT-IRIT-Run3-13,All  ,0.2143,0.1915,0.1993,0.1765,-0.1237,-0.0793,-0.0374,95422.6,4790.5,229,,,,,,,,,,,,,,,,,
-BJUT-BL1-04,All  ,0.1837,0.1625,0.1809,0.1598,-0.7058,-0.5184,-0.342,88012.9,147,869,,,,BJUT-BL1-04,All  ,0.1875,0.0887,0.1813,0.0825,-1.0774,-0.78,-0.5001,72682.9,53.5,1410,,,Jaccard-No-Expansion-Run,All  ,0.1902,0.1741,0.1842,0.1681,-0.2577,-0.1846,-0.1158,90833.9,838,347,,No query expansion and novelty detection. Basic Jaccard(Threshold=0.3). Ignore latency,
-BJUT-BL3-03,All  ,0.1692,0.0774,0.1711,0.0793,-1.4431,-1.0493,-0.6787,74215.5,52,1859,,,,BJUT-BL2-05,All  ,0.1839,0.1649,0.1798,0.1607,-0.5095,-0.3737,-0.2459,107909.4,147,631,,,,,,,,,,,,,,,,,
-,All  ,0.1602,0.1225,0.1636,0.1258,-0.8745,-0.6466,-0.432,103186.8,2513,1058,,,,BJUT-BL3-03,All  ,0.1684,0.1315,0.1694,0.1325,-0.5997,-0.4427,-0.2948,72415.3,140,731,,,,,,,,,,,,,,,,,
-,,Sorted,Scenario A runs by NIST accessors (Original Without Cleaning) Results  (consistent with the overview paper),,,,,,,,,,,,,Sorted,Scenario A runs by NIST accessors (updated after Cleaning) Results  (consistent with the overview paper),,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Here will shows  a plot of T vs performance based on 78495 simulated tweets in DB,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-runtag  ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Threshold,run,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precision(s),Precision(l)
-qFB_url,topic,nDCGp ,nDCG1 ,,,,,,,,,,,,,,,,,,,,,,,,,,,0,Jaccard-No-Expansion-Run-all-withsocre,All,5002,1065,17883,-13946,-11816,420732,433743,0,0,0.208851775,0.253319415
-HLJIT_l2r,All  ,0.3656,0.291,,,,,,,,,,,,,,,,,,,,,,,,,,,0.02,Jaccard-No-Expansion-Run-all-withsocre,All,5002,1065,17883,-13946,-11816,420727,433738,0,0,0.208851775,0.253319415
-HLJIT_rank_svm,All  ,0.3274,0.2778,,,,,,,,,,,,,,,,,,,,,,,,,,,0.04,Jaccard-No-Expansion-Run-all-withsocre,All,4984,1065,17813,-13894,-11764,409971,422926,0,0,0.208867656,0.253499288
-IRIT-RunB2,All  ,0.2865,0.2376,,,,,,,,,,,,,,,,,,,,,,,,,,,0.06,Jaccard-No-Expansion-Run-all-withsocre,All,4559,992,14998,-11431,-9447,276909,288047,0,0,0.221859945,0.2701348
-IRIT-RunB1,All  ,0.2142,0.1833,,,,,,,,,,,,,,,,,,,,,,,,,,,0.08,Jaccard-No-Expansion-Run-all-withsocre,All,3691,792,10736,-7837,-6253,121474,129768,0,0,0.24252579,0.294566003
-IRIT-RunB3,All  ,0.213,0.1962,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,Jaccard-No-Expansion-Run-all-withsocre,All,3079,645,7691,-5257,-3967,50099,56357,0,0,0.269732808,0.326237407
-bjut_tmg,All  ,0.2117,0.1961,,,,,,,,,,,,,,,,,,,,,,,,,,,0.12,Jaccard-No-Expansion-Run-all-withsocre,All,2618,540,6217,-4139,-3059,33425,38545,0,0,0.279253333,0.336853333
-bjutg,All  ,0.1796,0.1456,,,,,,,,,,,,,,,,,,,,,,,,,,,0.14,Jaccard-No-Expansion-Run-all-withsocre,All,2142,417,4754,-3029,-2195,21066,25069,0,0,0.292903049,0.349924791
-bjutgs,All  ,0.1169,0.1169,,,,,,,,,,,,,,,,,,,,,,,,,,,0.16,Jaccard-No-Expansion-Run-all-withsocre,All,1525,303,3318,-2096,-1490,11894,14728,0,0,0.296346677,0.355227361
-,All  ,0.0746,0.0746,,,,,,,,,,,,,,,,,,,,,,,,,,,0.18,Jaccard-No-Expansion-Run-all-withsocre,All,1228,256,2509,-1537,-1025,7234,9423,0,0,0.307538192,0.371650388
-,,Sorted,Scenario B runs by NIST accessors (Original Without Cleaning) Results  (consistent with the overview paper),,,,,,,,,,,,,,,,,,,,,,,,,,,0.2,Jaccard-No-Expansion-Run-all-withsocre,All,762,155,1464,-857,-547,3246,4548,0,0,0.320033599,0.385132297
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.22,Jaccard-No-Expansion-Run-all-withsocre,All,677,134,1327,-784,-516,2954,4116,0,0,0.316651076,0.379326473
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.24,Jaccard-No-Expansion-Run-all-withsocre,All,464,85,915,-536,-366,2084,2885,0,0,0.316939891,0.375
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.26,Jaccard-No-Expansion-Run-all-withsocre,All,325,59,586,-320,-202,1035,1555,0,0,0.335051546,0.395876289
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.28,Jaccard-No-Expansion-Run-all-withsocre,All,268,47,499,-278,-184,844,1271,0,0,0.329238329,0.386977887
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.3,Jaccard-No-Expansion-Run-all-withsocre,All,193,30,312,-149,-89,523,800,0,0,0.360747664,0.41682243
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.32,Jaccard-No-Expansion-Run-all-withsocre,All,145,23,249,-127,-81,446,656,0,0,0.347721823,0.402877698
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.34,Jaccard-No-Expansion-Run-all-withsocre,All,100,14,116,-30,-2,178,291,0,0,0.434782609,0.495652174
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.36,Jaccard-No-Expansion-Run-all-withsocre,All,96,10,113,-27,-7,176,284,0,0,0.438356164,0.484018265
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.38,Jaccard-No-Expansion-Run-all-withsocre,All,42,5,43,-6,4,116,165,0,0,0.466666667,0.522222222
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.4,Jaccard-No-Expansion-Run-all-withsocre,All,19,2,16,1,5,56,75,0,0,0.513513514,0.567567568
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.42,Jaccard-No-Expansion-Run-all-withsocre,All,18,0,16,2,2,53,71,0,0,0.529411765,0.529411765
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.44,Jaccard-No-Expansion-Run-all-withsocre,All,12,0,16,-4,-4,48,63,0,0,0.428571429,0.428571429
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.46,Jaccard-No-Expansion-Run-all-withsocre,All,6,0,6,0,0,39,46,0,0,0.5,0.5
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.48,Jaccard-No-Expansion-Run-all-withsocre,All,6,0,6,0,0,39,46,0,0,0.5,0.5
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.52,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.54,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.56,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.58,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.6,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.62,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.64,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.66,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.68,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.7,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.72,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.74,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.76,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.78,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.8,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.82,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.84,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.86,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.88,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.9,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0
+IRIT-IRIT-Run1-14,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precison(s),Presion(l),,,run,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precison(s),Presion(l),,My attempt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HLJIT-testRun2-07,All,314,13,359,-58,-32,327,677,1.1,1,0.457725948,0.476676385,,,IRIT-IRIT-Run1-14,All,251,11,278,-38,-16,17,276,1.1,1,0.464814815,0.485185185,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HLJIT-testRun1-06,All,616,60,833,-277,-157,714,1470,38685.6,33446,0.408217362,0.447978794,,,HLJIT-testRun2-07,All,475,48,668,-241,-145,47,624,39151,33876,0.398824517,0.439126784,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IRIT-IRIT-Run2-12,All,501,59,803,-361,-243,746,1464,39362.1,35233,0.367571533,0.410858401,,,HLJIT-testRun1-06,All,392,51,608,-267,-165,58,588,39309.7,35438.5,0.372978116,0.42150333,,,,,,,,,,,,,,,Description,,,,,,,,,,,,,,,,
+IRIT-IRIT-Run3-13,All,165,30,275,-140,-80,352,607,163.9,33,0.35106383,0.414893617,,,IRIT-IRIT-Run2-12,All,132,24,212,-104,-56,12,210,202.4,34,0.358695652,0.423913043,,Jaccard-No-Expansion-Run,All,193,30,312,-149,-89,523,800,0,0,0.360747664,0.41682243,No query expansion and novelty detection. Basic Jaccard(Threshold=0.3). Ignore latency,,,,,,,,,,,,,,,,
+HLJIT-testRun3-08,All,247,45,419,-217,-127,470,875,124.8,29,0.347398031,0.41068917,,,HLJIT-testRun3-08,All,459,63,763,-367,-241,50,713,21971.2,21993,0.357198444,0.406225681,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BJUT-BL1-04,All,591,89,1032,-530,-352,812,1711,21460.3,21028,0.34521028,0.397196262,,,IRIT-IRIT-Run3-13,All,176,35,295,-154,-84,13,295,165.9,29,0.347826087,0.416996047,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BJUT-BL2-05,All,664,108,3675,-3119,-2903,2012,4353,80,36,0.149314144,0.17360018,,,BJUT-BL1-04,All,513,82,2826,-2395,-2231,79,1839,70.3,36,0.149956153,0.173925753,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BJUT-BL3-03,All,159,19,1565,-1425,-1387,895,1823,82.6,83,0.091222031,0.102122777,,,BJUT-BL2-05,All,122,12,1172,-1062,-1038,41,720,83.4,84,0.093415008,0.102603369,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,All,183,30,2067,-1914,-1854,890,2129,82.2,83,0.080263158,0.093421053,,,BJUT-BL3-03,All,139,22,1479,-1362,-1318,46,907,83.2,83,0.084756098,0.098170732,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Scenario A runs by mobile accessors (Original Without Cleaning) Results (not consistent with the overview paper),,,,,,,,,,Sorted,,,,Scenario A runs by mobile accessors (updated with cleaning)   ,,,,,,,,,,,Sorted,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+runtag           ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HLJIT-testRun2-07,topic,EGp   ,EG1   ,nCGp  ,nCG1  ,GMP.33    ,GMP.50    ,GMP.66    ,mean_latency   ,median_latency ,total_length,,,,runtag           ,topic,EGp   ,EG1   ,nCGp  ,nCG1  ,GMP.33    ,GMP.50    ,GMP.66    ,mean_latency   ,median_latency ,total_length,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HLJIT-testRun1-06,All  ,0.363,0.2088,0.2808,0.1266,-0.272,-0.1566,-0.0479,119374.3,56743.5,621,,,,HLJIT-testRun2-07,All  ,0.3302,0.2223,0.2612,0.1534,-0.2099,-0.1189,-0.0332,119701.3,58858,492,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IRIT-IRIT-Run1-14,All  ,0.3318,0.1811,0.261,0.1102,-0.3118,-0.1936,-0.0824,116649.1,49154,618,,,,HLJIT-testRun1-06,All  ,0.3098,0.2159,0.25,0.1561,-0.2236,-0.135,-0.0516,123366.3,52845,468,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HLJIT-testRun3-08,All  ,0.2918,0.2571,0.2321,0.1974,-0.1195,-0.0615,-0.007,67554.5,1,320,,,,IRIT-IRIT-Run1-14,All  ,0.2756,0.2548,0.2254,0.2046,-0.0736,-0.0312,0.0086,70959.3,1,241,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IRIT-IRIT-Run2-12,All  ,0.2426,0.1832,0.242,0.1826,-0.4618,-0.3086,-0.1645,101707.9,32254.5,773,,,,HLJIT-testRun3-08,All  ,0.2465,0.1924,0.2356,0.1815,-0.3198,-0.2091,-0.1049,112678.8,34445,566,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IRIT-IRIT-Run3-13,All  ,0.2212,0.2041,0.1996,0.1825,-0.0942,-0.0557,-0.0195,96894.1,14768,201,,,,IRIT-IRIT-Run2-12,All  ,0.2147,0.2021,0.1975,0.1848,-0.071,-0.0406,-0.0119,88093.5,3796,162,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BJUT-BL2-05,All  ,0.2194,0.1895,0.2015,0.1716,-0.1853,-0.1221,-0.0626,98864.9,15623,320,,,,IRIT-IRIT-Run3-13,All  ,0.2143,0.1915,0.1993,0.1765,-0.1237,-0.0793,-0.0374,95422.6,4790.5,229,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BJUT-BL1-04,All  ,0.1837,0.1625,0.1809,0.1598,-0.7058,-0.5184,-0.342,88012.9,147,869,,,,BJUT-BL1-04,All  ,0.1875,0.0887,0.1813,0.0825,-1.0774,-0.78,-0.5001,72682.9,53.5,1410,,,Jaccard-No-Expansion-Run,All  ,0.1902,0.1741,0.1842,0.1681,-0.2577,-0.1846,-0.1158,90833.9,838,347,,No query expansion and novelty detection. Basic Jaccard(Threshold=0.3). Ignore latency,,,,,,,,,,,,,,,,
+BJUT-BL3-03,All  ,0.1692,0.0774,0.1711,0.0793,-1.4431,-1.0493,-0.6787,74215.5,52,1859,,,,BJUT-BL2-05,All  ,0.1839,0.1649,0.1798,0.1607,-0.5095,-0.3737,-0.2459,107909.4,147,631,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,All  ,0.1602,0.1225,0.1636,0.1258,-0.8745,-0.6466,-0.432,103186.8,2513,1058,,,,BJUT-BL3-03,All  ,0.1684,0.1315,0.1694,0.1325,-0.5997,-0.4427,-0.2948,72415.3,140,731,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,Sorted,Scenario A runs by NIST accessors (Original Without Cleaning) Results  (consistent with the overview paper),,,,,,,,,,,,,Sorted,Scenario A runs by NIST accessors (updated after Cleaning) Results  (consistent with the overview paper),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Here will shows  a plot of T vs performance based on 78495 simulated tweets in DB,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+runtag  ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Threshold,run,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precision(s),Precision(l),,Threshold,run,topic,relevant,redundant,not_relevant,online_utility(strict),online_utility(lenient),unjudged,total_length,mean_latency,median_latency,Precision(s),Precision(l)
+qFB_url,topic,nDCGp ,nDCG1 ,,,,,,,,,,,,,,,,,,,,,,,,,,,0,Jaccard-No-Expansion-Run-all-withsocre,All,5002,1065,17883,-13946,-11816,420732,433743,0,0,0.208851775,0.253319415,,0.3,cosinetfidf-Expansion-Run-all-withsocre,All,2104,347,3949,-2192,-1498,9836,13220,0,0,0.32875,0.38296875
+HLJIT_l2r,All  ,0.3656,0.291,,,,,,,,,,,,,,,,,,,,,,,,,,,0.02,Jaccard-No-Expansion-Run-all-withsocre,All,5002,1065,17883,-13946,-11816,420727,433738,0,0,0.208851775,0.253319415,,0.32,cosinetfidf-Expansion-Run-all-withsocre,All,1829,290,3279,-1740,-1160,8091,10945,0,0,0.338829196,0.392552797
+HLJIT_rank_svm,All  ,0.3274,0.2778,,,,,,,,,,,,,,,,,,,,,,,,,,,0.04,Jaccard-No-Expansion-Run-all-withsocre,All,4984,1065,17813,-13894,-11764,409971,422926,0,0,0.208867656,0.253499288,,0.34,cosinetfidf-Expansion-Run-all-withsocre,All,1562,239,2806,-1483,-1005,6528,8949,0,0,0.339049273,0.39092685
+IRIT-RunB2,All  ,0.2865,0.2376,,,,,,,,,,,,,,,,,,,,,,,,,,,0.06,Jaccard-No-Expansion-Run-all-withsocre,All,4559,992,14998,-11431,-9447,276909,288047,0,0,0.221859945,0.2701348,,0.36,cosinetfidf-Expansion-Run-all-withsocre,All,1340,192,2338,-1190,-806,5351,7378,0,0,0.34625323,0.395865633
+IRIT-RunB1,All  ,0.2142,0.1833,,,,,,,,,,,,,,,,,,,,,,,,,,,0.08,Jaccard-No-Expansion-Run-all-withsocre,All,3691,792,10736,-7837,-6253,121474,129768,0,0,0.24252579,0.294566003,,0.38,cosinetfidf-Expansion-Run-all-withsocre,All,1136,139,1907,-910,-632,4352,6016,0,0,0.357008171,0.400691389
+IRIT-RunB3,All  ,0.213,0.1962,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,Jaccard-No-Expansion-Run-all-withsocre,All,3079,645,7691,-5257,-3967,50099,56357,0,0,0.269732808,0.326237407,,0.4,cosinetfidf-Expansion-Run-all-withsocre,All,953,113,1530,-690,-464,3553,4898,0,0,0.367103236,0.410631741
+bjut_tmg,All  ,0.2117,0.1961,,,,,,,,,,,,,,,,,,,,,,,,,,,0.12,Jaccard-No-Expansion-Run-all-withsocre,All,2618,540,6217,-4139,-3059,33425,38545,0,0,0.279253333,0.336853333,,0.42,cosinetfidf-Expansion-Run-all-withsocre,All,789,92,1236,-539,-355,2887,3969,0,0,0.372697213,0.416154936
+bjutg,All  ,0.1796,0.1456,,,,,,,,,,,,,,,,,,,,,,,,,,,0.14,Jaccard-No-Expansion-Run-all-withsocre,All,2142,417,4754,-3029,-2195,21066,25069,0,0,0.292903049,0.349924791,,0.44,cosinetfidf-Expansion-Run-all-withsocre,All,653,74,989,-410,-262,2303,3170,0,0,0.380536131,0.423659674
+bjutgs,All  ,0.1169,0.1169,,,,,,,,,,,,,,,,,,,,,,,,,,,0.16,Jaccard-No-Expansion-Run-all-withsocre,All,1525,303,3318,-2096,-1490,11894,14728,0,0,0.296346677,0.355227361,,0.46,cosinetfidf-Expansion-Run-all-withsocre,All,520,55,770,-305,-195,1845,2526,0,0,0.3866171,0.427509294
+,All  ,0.0746,0.0746,,,,,,,,,,,,,,,,,,,,,,,,,,,0.18,Jaccard-No-Expansion-Run-all-withsocre,All,1228,256,2509,-1537,-1025,7234,9423,0,0,0.307538192,0.371650388,,0.48,cosinetfidf-Expansion-Run-all-withsocre,All,401,41,606,-246,-164,1425,1955,0,0,0.382633588,0.421755725
+,,Sorted,Scenario B runs by NIST accessors (Original Without Cleaning) Results  (consistent with the overview paper),,,,,,,,,,,,,,,,,,,,,,,,,,,0.2,Jaccard-No-Expansion-Run-all-withsocre,All,762,155,1464,-857,-547,3246,4548,0,0,0.320033599,0.385132297,,0.5,cosinetfidf-Expansion-Run-all-withsocre,All,296,35,464,-203,-133,1092,1487,0,0,0.372327044,0.416352201
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.22,Jaccard-No-Expansion-Run-all-withsocre,All,677,134,1327,-784,-516,2954,4116,0,0,0.316651076,0.379326473,,0.52,cosinetfidf-Expansion-Run-all-withsocre,All,225,26,335,-136,-84,829,1119,0,0,0.383959044,0.428327645
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.24,Jaccard-No-Expansion-Run-all-withsocre,All,464,85,915,-536,-366,2084,2885,0,0,0.316939891,0.375,,0.54,cosinetfidf-Expansion-Run-all-withsocre,All,157,23,249,-115,-69,596,809,0,0,0.365967366,0.41958042
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.26,Jaccard-No-Expansion-Run-all-withsocre,All,325,59,586,-320,-202,1035,1555,0,0,0.335051546,0.395876289,,0.56,cosinetfidf-Expansion-Run-all-withsocre,All,112,15,167,-70,-40,417,562,0,0,0.380952381,0.431972789
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.28,Jaccard-No-Expansion-Run-all-withsocre,All,268,47,499,-278,-184,844,1271,0,0,0.329238329,0.386977887,,0.58,cosinetfidf-Expansion-Run-all-withsocre,All,81,10,113,-42,-22,312,415,0,0,0.397058824,0.446078431
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.3,Jaccard-No-Expansion-Run-all-withsocre,All,193,30,312,-149,-89,523,800,0,0,0.360747664,0.41682243,,0.6,cosinetfidf-Expansion-Run-all-withsocre,All,58,8,82,-32,-16,248,324,0,0,0.391891892,0.445945946
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.32,Jaccard-No-Expansion-Run-all-withsocre,All,145,23,249,-127,-81,446,656,0,0,0.347721823,0.402877698,,0.62,cosinetfidf-Expansion-Run-all-withsocre,All,46,3,59,-16,-10,172,227,0,0,0.425925926,0.453703704
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.34,Jaccard-No-Expansion-Run-all-withsocre,All,100,14,116,-30,-2,178,291,0,0,0.434782609,0.495652174,,0.64,cosinetfidf-Expansion-Run-all-withsocre,All,34,3,40,-9,-3,125,164,0,0,0.441558442,0.480519481
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.36,Jaccard-No-Expansion-Run-all-withsocre,All,96,10,113,-27,-7,176,284,0,0,0.438356164,0.484018265,,0.66,cosinetfidf-Expansion-Run-all-withsocre,All,16,1,24,-9,-7,87,106,0,0,0.390243902,0.414634146
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.38,Jaccard-No-Expansion-Run-all-withsocre,All,42,5,43,-6,4,116,165,0,0,0.466666667,0.522222222,,0.68,cosinetfidf-Expansion-Run-all-withsocre,All,12,0,16,-4,-4,54,68,0,0,0.428571429,0.428571429
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.4,Jaccard-No-Expansion-Run-all-withsocre,All,19,2,16,1,5,56,75,0,0,0.513513514,0.567567568,,0.7,cosinetfidf-Expansion-Run-all-withsocre,All,9,0,10,-1,-1,39,50,0,0,0.473684211,0.473684211
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.42,Jaccard-No-Expansion-Run-all-withsocre,All,18,0,16,2,2,53,71,0,0,0.529411765,0.529411765,,0.72,cosinetfidf-Expansion-Run-all-withsocre,All,6,0,6,0,0,31,38,0,0,0.5,0.5
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.44,Jaccard-No-Expansion-Run-all-withsocre,All,12,0,16,-4,-4,48,63,0,0,0.428571429,0.428571429,,0.74,cosinetfidf-Expansion-Run-all-withsocre,All,2,0,6,-4,-4,21,26,0,0,0.25,0.25
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.46,Jaccard-No-Expansion-Run-all-withsocre,All,6,0,6,0,0,39,46,0,0,0.5,0.5,,0.76,cosinetfidf-Expansion-Run-all-withsocre,All,1,0,2,-1,-1,7,10,0,0,0.333333333,0.333333333
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.48,Jaccard-No-Expansion-Run-all-withsocre,All,6,0,6,0,0,39,46,0,0,0.5,0.5,,0.78,cosinetfidf-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,7,8,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0,,0.8,cosinetfidf-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,6,7,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.52,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0,,0.82,cosinetfidf-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,5,6,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.54,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0,,0.84,cosinetfidf-Expansion-Run-all-withsocre,All,0,0,0,0,0,3,3,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.56,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0,,0.86,cosinetfidf-Expansion-Run-all-withsocre,All,0,0,0,0,0,2,2,0,0,0,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.58,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,3,4,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.6,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.62,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.64,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.66,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,1,-1,-1,1,2,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.68,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.7,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.72,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.74,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.76,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.78,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.8,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.82,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.84,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.86,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.88,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.9,Jaccard-No-Expansion-Run-all-withsocre,All,0,0,0,0,0,1,1,0,0,0,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Threshold,runtag,topic,EGp,EG1,nCGp,nCG1,GMP.33,GMP.50,GMP.66,mean_latency,median_latency,total_length,,,Threshold,runtag,topic,EGp,EG1,nCGp,nCG1,GMP.33,GMP.50,GMP.66,mean_latency,median_latency,total_length,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,Jaccard-No-Expansion-Run-all-withsocre,All  ,-8.0203,0.002,-7.9903,0.032,-124.4668,-92.8615,-63.1153,7646.8,0,146419,,,0.3,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1348,0.107,0.2421,0.2143,-4.4983,-3.2468,-2.0688,28324.9,0,6187,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.02,Jaccard-No-Expansion-Run-all-withsocre,All  ,-8.0202,0.002,-7.9902,0.032,-124.4668,-92.8615,-63.1153,7646.8,0,146419,,,0.32,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1707,0.1224,0.2607,0.2124,-3.595,-2.5838,-1.632,30171.6,0,4986,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.04,Jaccard-No-Expansion-Run-all-withsocre,All  ,-7.7908,0.002,-7.7608,0.032,-119.51,-89.1624,-60.5999,7731.2,0,140674,,,0.34,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.205,0.1309,0.2757,0.2016,-2.8507,-2.0409,-1.2788,36658.3,0,3998,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.06,Jaccard-No-Expansion-Run-all-withsocre,All  ,-4.5236,0.0022,-4.4916,0.0341,-86.7986,-64.7484,-43.9953,9762.3,0,102637,,,0.36,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2252,0.1412,0.2744,0.1904,-2.2493,-1.605,-0.9986,37804.9,0,3193,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.08,Jaccard-No-Expansion-Run-all-withsocre,All  ,-1.7634,0.0054,-1.7165,0.0523,-42.0605,-31.3492,-21.268,15485.9,0,50346,,,0.38,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2354,0.1547,0.2679,0.1872,-1.7324,-1.2287,-0.7547,40510.8,0,2504,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,Jaccard-No-Expansion-Run-all-withsocre,All  ,-0.5724,0.013,-0.4993,0.0861,-19.9126,-14.8064,-10.0005,21223.3,0,24313,,,0.4,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2353,0.1597,0.2578,0.1823,-1.3132,-0.9256,-0.5607,45155.1,0,1930,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.12,Jaccard-No-Expansion-Run-all-withsocre,All  ,-0.2619,0.0212,-0.1792,0.1039,-14.2226,-10.5506,-7.0946,24720,0,17547,,,0.42,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2301,0.1682,0.2448,0.1829,-1.0093,-0.7081,-0.4246,50976.9,0,1504,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.14,Jaccard-No-Expansion-Run-all-withsocre,All  ,-0.0573,0.0319,0.022,0.1112,-9.4772,-7.0052,-4.6786,26104.8,0,11859,,,0.44,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2343,0.1861,0.2376,0.1894,-0.7744,-0.5367,-0.313,55318.1,0,1179,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.16,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.0893,0.0599,0.1521,0.1227,-5.5547,-4.0818,-2.6956,33034.3,0,7078,,,0.46,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2287,0.1916,0.2232,0.1861,-0.5839,-0.4021,-0.2309,61430.1,0,903,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.18,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1493,0.0797,0.1922,0.1226,-3.4444,-2.5116,-1.6337,37386.3,0,4500,,,0.48,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2253,0.196,0.2134,0.184,-0.4163,-0.2841,-0.1598,68677.9,0,656,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.2,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.2079,0.1468,0.2221,0.161,-1.5833,-1.1363,-0.7156,45774.5,0,2148,,,0.5,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.211,0.1911,0.1992,0.1792,-0.3054,-0.2097,-0.1197,73450.8,0,470,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.22,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.2024,0.1433,0.2161,0.1571,-1.4597,-1.0499,-0.6643,48556.3,0,1960,,,0.52,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.2051,0.1881,0.1929,0.1759,-0.2243,-0.1546,-0.0891,77006.6,0,341,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.24,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1971,0.1548,0.1977,0.1554,-1.0141,-0.7332,-0.4689,51940.8,0,1338,,,0.54,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1982,0.1869,0.1884,0.1771,-0.1545,-0.1066,-0.0616,94117.4,0,236,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.26,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.199,0.1685,0.1928,0.1623,-0.5123,-0.3673,-0.2308,57357.3,0,695,,,0.56,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1963,0.1905,0.1866,0.1808,-0.1031,-0.0706,-0.0399,114053.2,0,161,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.28,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1988,0.1728,0.1902,0.1642,-0.4155,-0.2983,-0.188,78934.8,0,558,,,0.58,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1959,0.1901,0.1855,0.1797,-0.0724,-0.0486,-0.0263,138843.5,0,118,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.3,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1902,0.1741,0.1842,0.1681,-0.2577,-0.1846,-0.1158,90833.9,838,347,,,0.6,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1927,0.1904,0.1838,0.1815,-0.0586,-0.0396,-0.0218,128697.2,0,93,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.32,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1902,0.1741,0.1837,0.1676,-0.1942,-0.1369,-0.083,118168.6,5929,270,,,0.62,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1917,0.1917,0.1834,0.1834,-0.0329,-0.0213,-0.0103,190732,53830,58,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.34,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1888,0.1853,0.1827,0.1792,-0.0629,-0.0416,-0.0215,219213,60097,102,,,0.64,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1904,0.1904,0.1832,0.1832,-0.0264,-0.0168,-0.0077,185098.4,53830,48,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.36,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1869,0.1834,0.1822,0.1787,-0.0592,-0.0393,-0.0205,219328.5,60097,95,,,0.66,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1823,0.1823,0.178,0.178,-0.0171,-0.0113,-0.0058,248804.3,256471.5,28,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.38,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1843,0.1809,0.1792,0.1757,-0.0439,-0.0293,-0.0156,185548.6,56963.5,70,,,0.68,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1791,0.1791,0.1772,0.1772,-0.013,-0.009,-0.0053,227739.7,191420,19,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.4,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1791,0.1779,0.1773,0.1761,-0.0203,-0.0142,-0.0084,159416.4,60097,30,,,0.7,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1785,0.1785,0.177,0.177,-0.0106,-0.0074,-0.0044,95710,95710,15,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.42,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1787,0.1775,0.1771,0.176,-0.0197,-0.0139,-0.0084,170601,30048.5,28,,,0.72,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1785,0.1785,0.177,0.177,-0.0054,-0.0035,-0.0018,95710,95710,9,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.44,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.178,0.1769,0.177,0.1759,-0.019,-0.0135,-0.0084,227468,60097,26,,,0.74,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0052,-0.0039,-0.0026,0,0,6,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.46,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1774,0.1762,0.1769,0.1757,-0.0186,-0.0135,-0.0088,311153.5,311153.5,24,,,0.76,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0035,-0.0026,-0.0018,0,0,4,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.48,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1774,0.1762,0.1769,0.1757,-0.0186,-0.0135,-0.0088,311153.5,311153.5,24,,,0.78,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0017,-0.0013,-0.0009,0,0,2,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,0.8,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0017,-0.0013,-0.0009,0,0,2,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.52,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,0.82,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0017,-0.0013,-0.0009,0,0,2,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.54,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,0.84,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.56,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,0.86,cosinetfidf-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.58,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.6,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.62,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.64,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.66,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,-0.0009,-0.0006,-0.0004,0,0,1,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.68,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.7,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.72,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.74,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.76,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.78,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.8,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.82,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.84,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.86,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.88,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.9,Jaccard-No-Expansion-Run-all-withsocre,All  ,0.1765,0.1765,0.1765,0.1765,0,0,0,0,0,0,,,,,,,,,,,,,,,,

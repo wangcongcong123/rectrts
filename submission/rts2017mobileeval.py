@@ -17,7 +17,7 @@ from datetime import datetime
 # evaluation_starts = 1501286400
 # evaluation_ends = 1501977599
 # seconds_perday = 86400
-def evaluate(run_path):
+def evaluate(run_path, printswitch=False):
     K = 10
     days = []
     for i in range(29, 32):
@@ -25,12 +25,11 @@ def evaluate(run_path):
     for i in range(1, 6):
         days.append("201708%02d" % i)
     unixTimestamp = datetime.utcfromtimestamp(0)
-    file_qrels_path = "support/rts2017-mobile-qrels.txt"
+    file_qrels_path = "submission/support/rts2017-mobile-qrels.txt"
     # run_path="/Users/wangcongcong/Desktop/rectrts/dataset/TRECdataset/submissions/scenarioA/advanse_lirmm-Run1-A"
-    file_tweet2day = "support/rts2017-batch-tweets2dayepoch.txt"
+    file_tweet2day = "submission/support/rts2017-mobile-tweets2dayepoch.txt"
     # the result will be the same if running on the following file
     # file_tweet2day = "../log-tweetIds-in-db-2017-and-epoch.txt"
-
     # print(unixTimestamp)
     # print(args)
     # print(file_qrels_path)
@@ -60,8 +59,7 @@ def evaluate(run_path):
     for line in open(file_tweet2day).readlines():
         line = line.strip().split()
         tweet2epoch_dt[line[0]] = int(line[2])
-
-    runname = ''
+    runname = ""
     run_dt = {topic: 0 for topic in qrels_dt}
     rel_dt = {topic: 0 for topic in qrels_dt}
     non_rel_dt = {topic: 0 for topic in qrels_dt}
@@ -69,12 +67,11 @@ def evaluate(run_path):
     unjudge_dt = {topic: 0 for topic in qrels_dt}
     delay_list = {topic: [] for topic in qrels_dt}
     all_delay = []
-
     run_lines = open(run_path).readlines()
-
     if len(run_lines) == 0:
-        print("This is an empty run.")
-        sys.exit()
+        # print("This is an empty run.")
+        return "\t".join([run_path.split("/")[1], "All", "0","0","0","0","0","0","0","0","0","0"])
+        # sys.exit()
 
     for line in run_lines:
         line = line.strip().split()
@@ -85,13 +82,11 @@ def evaluate(run_path):
             tweetid = line[1]
             pushed_at = datetime.strptime("17" + line[2], "%y%m%d-%H:%M:%S")
             epoch = int((pushed_at - unixTimestamp).total_seconds())
-
-
             if tweetid in tweet2epoch_dt:
                 created_at = tweet2epoch_dt[tweetid]
-                #-------ADD
+                # -------ADD
                 # epoch=epoch+3600
-                #--------ADD
+                # --------ADD
                 if epoch >= created_at and tweetid in qrels_dt[topic]:
                     rel_dt[topic] += qrels_dt[topic][tweetid][0]
                     non_rel_dt[topic] += qrels_dt[topic][tweetid][1]
@@ -116,40 +111,27 @@ def evaluate(run_path):
     #                  "online_utility(strict)", "online_utility(lenient)",
     #                  "unjudged", "total_length", "mean_latency", "median_latency"]))
 
-    str_my=",".join(["run", "topic", "relevant", "redundant", "not_relevant",
-                     "online_utility(strict)", "online_utility(lenient)",
-                     "unjudged", "total_length", "mean_latency", "median_latency"])
-
+    str_my = ",".join(["run", "topic", "relevant", "redundant", "not_relevant",
+                       "online_utility(strict)", "online_utility(lenient)",
+                       "unjudged", "total_length", "mean_latency", "median_latency"])
+    coverage = 0
     onlineU_strict = {topic: rel_dt[topic] - redun_dt[topic] - non_rel_dt[topic] for topic in rel_dt}
     onlineU_lenient = {topic: rel_dt[topic] + redun_dt[topic] - non_rel_dt[topic] for topic in rel_dt}
 
-    # for topic in sorted(qrels_dt.keys()):
-    #     # str_my+="\n"+",".join([runname, topic, str(rel_dt[topic]), str(redun_dt[topic]), str(non_rel_dt[topic]),
-    #     #                  str(onlineU_strict[topic]),
-    #     #                  str(onlineU_lenient[topic]),
-    #     #                  str(unjudge_dt[topic]), str(run_dt[topic]),
-    #     #                 str(round(numpy.mean(delay_list[topic]) if delay_list[topic] != [] else 0, 1)),
-    #     #                 str(round(numpy.median(delay_list[topic]) if delay_list[topic] != [] else 0, 1))])
-    #     print("\t".join([runname, topic, str(rel_dt[topic]), str(redun_dt[topic]), str(non_rel_dt[topic]),
-    #                      str(onlineU_strict[topic]),
-    #                      str(onlineU_lenient[topic]),
-    #                      str(unjudge_dt[topic]), str(run_dt[topic]),
-    #                     str(round(numpy.mean(delay_list[topic]) if delay_list[topic] != [] else 0, 1)),
-    #                     str(round(numpy.median(delay_list[topic]) if delay_list[topic] != [] else 0, 1))]))
-    # str_my+="\n"+",".join([runname, "All", str(sum(list(rel_dt.values()))),
-    #                  str(sum(list(redun_dt.values()))), str(sum(list(non_rel_dt.values()))),
-    #                  str(sum(list(onlineU_strict.values()))), str(sum(list(onlineU_lenient.values()))),
-    #                  str(sum(list(unjudge_dt.values()))), str(sum(list(run_dt.values()))),
-    #                 str(round(numpy.mean(all_delay) if all_delay != [] else 0, 1)),
-    #                 str(round(numpy.median(all_delay) if all_delay != [] else 0, 1))])
+    for topic in sorted(qrels_dt.keys()):
+        if run_dt[topic] > 0:
+            coverage += 1
+        if printswitch:
+            print("\t".join([runname, topic, str(rel_dt[topic]), str(redun_dt[topic]), str(non_rel_dt[topic]),
+                             str(onlineU_strict[topic]),
+                             str(onlineU_lenient[topic]),
+                             str(unjudge_dt[topic]), str(run_dt[topic]),
+                             str(round(numpy.mean(delay_list[topic]) if delay_list[topic] != [] else 0, 1)),
+                             str(round(numpy.median(delay_list[topic]) if delay_list[topic] != [] else 0, 1))]))
     return "\t".join([runname, "All", str(sum(list(rel_dt.values()))),
-                     str(sum(list(redun_dt.values()))), str(sum(list(non_rel_dt.values()))),
-                     str(sum(list(onlineU_strict.values()))), str(sum(list(onlineU_lenient.values()))),
-                     str(sum(list(unjudge_dt.values()))), str(sum(list(run_dt.values()))),
-                    str(round(numpy.mean(all_delay) if all_delay != [] else 0, 1)),
-                    str(round(numpy.median(all_delay) if all_delay != [] else 0, 1))])
+                      str(sum(list(redun_dt.values()))), str(sum(list(non_rel_dt.values()))),
+                      str(sum(list(onlineU_strict.values()))), str(sum(list(onlineU_lenient.values()))),
+                      str(sum(list(unjudge_dt.values()))), str(sum(list(run_dt.values()))),
+                      str(round(numpy.mean(all_delay) if all_delay != [] else 0, 1)),
+                      str(round(numpy.median(all_delay) if all_delay != [] else 0, 1)), str(coverage / len(qrels_dt))])
 
-# with open("result.csv","w") as f:
-#     f.write(str_my)
-# import pandas as pd
-# pd.to_csv(str)
