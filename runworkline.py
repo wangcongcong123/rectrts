@@ -29,13 +29,13 @@ def thesholdAEval(submitfile):
     import numpy as np
     thresholds = np.arange(0.0, 0.92, 0.02)
     splitfoldername=submitfile.replace("-","")
-    files2eval = filetools.splitbyT(splitfoldername,submitfile,thresholds=thresholds)
+    files2eval = filetools.splitbyT(splitfoldername, submitfile, thresholds=thresholds)
     logging.info("Submission file is split to sub files by thresholds : {0}".format(thresholds))
     if not runlineconfig.STOP_BY_SPLIT:
         evalThresholdABatch(files2eval)
 
 def evalSubmitAFile(submitpath):
-    from submission import evaluateinbatch
+    from DB.submission import evaluateinbatch
     evaluateinbatch.eval2017Mobile(submitpath)
     evaluateinbatch.eval2017BatchA(submitpath)
 
@@ -45,10 +45,10 @@ def evalSubmitsABatch(submitfolder):
         for file in files:
             filestoeval.append(submitfolder+"/"+file)
 
-    from submission import evaluateinbatch
+    from DB.submission import evaluateinbatch
     if not runlineconfig.IS_THRESHOLD_EVAL:
-        return1=evaluateinbatch.eval2017MobileBatch(filestoeval)
-        return2=evaluateinbatch.eval2017BatchABatch(filestoeval)
+        return1= evaluateinbatch.eval2017MobileBatch(filestoeval)
+        return2= evaluateinbatch.eval2017BatchABatch(filestoeval)
         print(return1)
         print(return2)
     else:
