@@ -13,7 +13,6 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 import timeit
 import core.configfile as configfile
 
-
 class LocalListener:
     db = pymysql.connect("localhost", "root", "123", "trecrts")
     cursor = db.cursor()

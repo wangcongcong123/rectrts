@@ -59,12 +59,16 @@ def status2dbbatch(statusbatch):
                     status_text = status_json['retweeted_status']['text']
                 else:
                     status_text = status_json['text']
-                print(status)
+                # print(status)
+                if "\\" in description:
+                    description.replace("\\","")
+                if "\\" in status_text:
+                    status_text.replace("\\","")
                 # geo=None if geo!=None else None
                 # Create a new record
                 sql = "INSERT INTO listenpool(id,topic_label,relevance,user_description, user_location, coordinates, text,geo,user_name,user_created,user_followers,id_str,created,retweet_count,user_bg_color,dataset_src) VALUES" \
                       " ('%s','%s','%d','%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%s' ,'%d' ,'%s','%s' )" % \
-                      (strid, "None", -666, description.replace("\'", ""), loc.replace("\'", ""), "None",
+                      (strid, "None", -666, description.replace("\'", ""), "None", "None",
                        status_text.replace("\'", ""), "None", name.replace("\'", ""), user_created, followers, strid, created,
                        retweets,
                        bg_color, "online-listen")

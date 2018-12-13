@@ -18,7 +18,7 @@ def listen(option, executor):
         stream = tweepy.Stream(auth=api.auth, listener=stream_listener,tweet_mode='extended')
         # stream.filter(track=["china"])
         # stream.filter(languages=["en"])
-        stream.sample(languages=["en"])
+        stream.sample()
         # stream.sample()
         # return OnlineListener()
     else:

@@ -25,8 +25,11 @@ class OnlineListener(tweepy.StreamListener):
 
     def on_status(self, status):
         # if return
-        # if status.retweeted:
-        #     return
+        if status.retweeted:
+            return
+        tweet=status._json
+        if tweet["lang"] !="en":
+            return
 
         # if self.batchsize == 0:
         #     print("Time consumed: ", str(self.stop - self.start))
@@ -37,12 +40,12 @@ class OnlineListener(tweepy.StreamListener):
         # self.stop = timeit.default_timer()
         # self.statusbatch.append(status)
         # self.batchsize -= 1
-        self.count += 1
         # print("Get Tweet", self.count)
         # self.executor.excute(status)
+        self.count += 1
         rebuild_tweet=self.tweetRebuilt(status)
         self.executor.excute(rebuild_tweet)
-        logging.info("Processing Tweet " + str(self.count)+" : "+str(rebuild_tweet))
+        logging.info("Processing Tweet " + str(self.count)+" : ")
 
     def on_error(self, status_code):
         if status_code == 420:
