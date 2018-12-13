@@ -35,7 +35,7 @@ def thesholdAEval(submitfile):
         evalThresholdABatch(files2eval)
 
 def evalSubmitAFile(submitpath):
-    from DB.submission import evaluateinbatch
+    from submission import evaluateinbatch
     evaluateinbatch.eval2017Mobile(submitpath)
     evaluateinbatch.eval2017BatchA(submitpath)
 
@@ -45,7 +45,7 @@ def evalSubmitsABatch(submitfolder):
         for file in files:
             filestoeval.append(submitfolder+"/"+file)
 
-    from DB.submission import evaluateinbatch
+    from submission import evaluateinbatch
     if not runlineconfig.IS_THRESHOLD_EVAL:
         return1= evaluateinbatch.eval2017MobileBatch(filestoeval)
         return2= evaluateinbatch.eval2017BatchABatch(filestoeval)
